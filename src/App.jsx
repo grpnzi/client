@@ -10,7 +10,6 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-import Map from "./components/WorldMap/Map";
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-      
 
         <Route
           path="/profile"
