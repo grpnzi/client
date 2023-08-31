@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
 
 
 import Navbar from "./components/Navbar/Navbar";
@@ -45,10 +46,10 @@ function App() {
           }
         />
         <Route
-          path="/country/:location/experience"
+          path="/country/:location/:experienceId"
           element={
             <IsAnon>
-              <Link/>
+              <ExperienceDetail />
             </IsAnon>
           }
         />
