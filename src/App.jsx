@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -40,6 +41,14 @@ function App() {
           element={
             <IsAnon>
               <LoginPage />
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/country/:location/:experienceId"
+          element={
+            <IsAnon>
+              <ExperienceDetail />
             </IsAnon>
           }
         />
