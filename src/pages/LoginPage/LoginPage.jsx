@@ -122,8 +122,8 @@ function LoginPage() {
         Must be 8-20 characters long.
       </small>
     </div>
-    <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
-      <div className="form-check ">
+    <div className="col-md-5 mx-auto mb-4 d-flex justify-content-between">
+      <div className="form-check">
         <input
           className="form-check-input"
           type="checkbox"
@@ -135,7 +135,7 @@ function LoginPage() {
       </div>
     </div>
     <div className="col-md-6 mx-auto mb-3">
-      <button type="submit" className="btn btn-primary">Login</button>
+      <button type="submit" className="btn btn-primary mb-4">Login</button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p>Don't have an account yet?</p>
       <Link to="/signup">Sign Up</Link>
