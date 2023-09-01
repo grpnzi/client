@@ -7,6 +7,9 @@ import 'typeface-russo-one';
 import 'typeface-montserrat'
 
 
+
+
+
 function Navbar() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider's `value` prop
@@ -14,6 +17,16 @@ function Navbar() {
 
   return (
     <nav className="navbar px-4 navbar-expand-lg navbar-light bg-light">
+
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Share&display=swap');
+          .share-font {
+            font-family: 'Share', sans-serif;
+          }
+        `}
+      </style>
+      
       <Link style={{ fontFamily: 'Russo One' }} className="navbar-brand ml-4" to="/">
         wildXperience
       </Link>
@@ -33,29 +46,26 @@ function Navbar() {
           {isLoggedIn && (
             <>
               <li className="nav-item">
-                <Link className="nav-link" to="/profile">
-                  Profile
+                <Link style={{ fontFamily: 'Share', color:'black' }} className="nav-link font-weight-bold" to="/profile">
+                {user && user.name}
                 </Link>
               </li>
-              <li className="nav-item">
-                <button className="nav-link btn btn-link" onClick={logOutUser}>
+              <li style={{ fontFamily: 'Montserrat', color:'black' }} className="nav-item font-weight-bold">
+                <button className="nav-link" onClick={logOutUser}>
                   Logout
                 </button>
-              </li>
-              <li className="nav-item">
-                <span className="nav-link">{user && user.name}</span>
               </li>
             </>
           )}
           {!isLoggedIn && (
             <>
               <li className="nav-item">
-                <Link style={{ fontFamily: 'Montserrat', color:'black' }} className="nav-link font-weight-bold" to="/signup">
+                <Link className="nav-link font-weight-bold share-font" to="/signup">
                   Sign Up
                 </Link>
               </li>
               <li className="nav-item">
-                <Link style={{ fontFamily: 'Montserrat', color:"black" }} className="nav-link" to="/login">
+                <Link className="nav-link share-font" to="/login">
                   Login
                 </Link>
               </li>

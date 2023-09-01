@@ -5,7 +5,7 @@ import 'mdbreact/dist/css/mdb.css'
 
 export default function App() {
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
+    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted mt-5'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
@@ -46,25 +46,25 @@ export default function App() {
             </MDBCol>
 
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
+              <h6 className='text-uppercase fw-bold mb-4 d-flex justify-content-center'>Products</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Angular
-                </a>
+              <a href='' className='me-4 fa-lg d-flex justify-content-center text-reset'>
+                <MDBIcon fab icon="node" />
+             </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  React
-                </a>
+              <a href='' className='me-4 fa-lg d-flex justify-content-center text-reset'>
+                <MDBIcon fab icon="js" />
+             </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Vue
-                </a>
+              <a href='' className='me-4 fa-lg d-flex justify-content-center text-reset'>
+                <MDBIcon fab icon="react" />
+             </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
+                <a href='#!' className='me-4 fa-lg text-reset d-flex justify-content-center'>
+                <MDBIcon fab icon="envira" />
                 </a>
               </p>
             </MDBCol>
