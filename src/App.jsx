@@ -7,7 +7,7 @@ import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
 import Footer from "./components/Footer";
-
+import Experiences from "./pages/Experiences/Experiences";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -53,6 +53,14 @@ function App() {
             <IsAnon>
               <ExperienceDetail />
             </IsAnon>
+          }
+        />
+        <Route
+          path="/country/:location/experiences"
+          element={
+           
+              <Experiences />
+            
           }
         />
         <Route

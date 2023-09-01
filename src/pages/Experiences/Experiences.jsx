@@ -1,78 +1,67 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useParams, Link } from "react-router-dom";
+// import "bootstrap/dist/css/bootstrap.min.css";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
-function Experiences(){
-const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/:location/experience`
-const [xtreme, setXtrem] = useState(null);
-const [cultural, setCultural] = useState(null);
-// const state de todas las experiencias
-// fetch de TODAS las experiencias
+function Experiences() {
+  const { location } = useParams();
+  const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/${location}/experience`;
 
-// crear una función que filtre las experiencias según CULTURAL/GASTRO/EXTREME ([]).filter type gastro
+  const [experienceFiltered, setExperienceFiltered] = useState(null);
 
-useEffect(() => {
+  const [experience, setExperience] = useState(null);
 
+  useEffect(() => {
     fetch(apiUrl)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data);
-            return setCultural(data)
-        })
-        .catch((err) => console.log(err))
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        return setExperience(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
+  function filterExperience(experienceType) {
+    const experienceFiltered = experience.filter((experience) => {
+      return experience.experienceType === experienceType;
+    });
+    console.log(experienceFiltered);
+    setExperienceFiltered(experienceFiltered);
+  }
 
-
-}, []);
-
-useEffect(() => {
-
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data);
-            return setGastro(data)
-        })
-        .catch((err) => console.log(err))
-
-
-
-}, []);
-
-
-}
-
-
-
-return (
+  return (
     <>
-        <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-6">
-                    <img src={experience.imageUrl} alt={experience.title} className="img-fluid" />
-                </div>
-                <div className="col-md-6">
-                    <h1 className="mt-4">Unleash Experiences</h1>
-                    <h2 className="mt-4">{experience.title}</h2>
-                    <p className="lead">{experience.description}</p>
-                    <p className="mt-4">
-                        Price: ${experience.price}
-                        <button className="btn btn-primary ml-2">Book Now</button>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div className="container-fluid">
-            {expReviews.reviews.map((review) => (
-                <div key={review._id}>
-                    <h1>{review.name}</h1>
-                    <p>Comment: {review.comment}</p>
-                </div>
-            ))}
-        </div>
+    <h1>{location}</h1>
+      <button onClick={() => filterExperience("Xtreme")}>Xtreme</button>
+      <button onClick={() => filterExperience("Cultural")}>Cultural</button>
+      <button onClick={() => filterExperience("Gastronomic")}>Gastronomic</button>
+      {!experienceFiltered ? <p>Choose your experience</p>:
+      <>
+      {!experienceFiltered ? (
+        <p>Setting your experiences...</p>
+      ) : (
+        <>
+         
+         {experienceFiltered.map((experience) => (
+  <Card style={{ width: "18rem" }} key={experience._id}>
+    <Card.Img variant="top" src={experience.imageUrl} />
+    <Card.Body>
+      <Card.Title>{experience.title}</Card.Title>
+      <Card.Text>{experience.description}</Card.Text>
+      <Link to={`/country/${location}/${experience._id}`} ><Button variant="primary">Go somewhere</Button></Link>
+      
+    </Card.Body>
+  </Card>
+))}
+
+
+        </>
+
+      )}
+      </>
+}
     </>
-
-);
-            
-
+  );
+}
 export default Experiences;
