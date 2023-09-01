@@ -1,34 +1,98 @@
-#ES {
-    fill: #0f0;
+  svg{
+    background-color: #E3E5CE;
   }
-  #ES:hover {
+
+  #AR {
     fill: #008000;
   }
-  #ID {
-    fill: #F00;
+  #AR:hover {
+    fill: #008000;
   }
-  #ID:hover {
-    fill: #800000;
-    
-  }
+
   #TH {
     fill: #4A3476;
   }
   #TH:hover {
     fill: #805678;}
-  #GL {
-    fill: #FFF;
+  #CL {
+    fill: #800000;
   }
-  #GL:hover {
-    fill: #BBB;
+  #CL:hover {
+    fill: #800000;
   }
-  #BR {
+  #FI {
     fill: #00F;
   }
-  #BR:hover {
+  #FI:hover {
     fill: #000080;
   }
-  
+  #KR {
+    fill: #00F;
+  }
+  #KR:hover {
+    fill: #000080;
+  }
+  #MA {
+    fill: #008000;
+  }
+  #MA:hover {
+    fill: #008000;
+  }
+  #MN {
+    fill: #F00;
+  }
+  #MN:hover {
+    fill: #800000;
+    
+  }
+  #MX {
+    fill: #F00;
+  }
+  #MX:hover {
+    fill: #800000;
+    
+  }
+
+  #NP {
+    fill: #F00;
+  }
+  #NP:hover {
+    fill: #800000;
+    
+  }
+  #NZ {
+    fill: #F00;
+  }
+  #NZ:hover {
+    fill: #800000;
+    
+  }
+  #PA {
+    fill: #008000;
+  }
+  #PA:hover {
+    fill: #008000;
+  }
+
+  #PL {
+    fill: #800000;
+  }
+  #PL:hover {
+    fill: #800000;
+  }
+
+  #TZ {
+    fill: #199900;
+  }
+  #TZ:hover {
+    fill: #4A3400;
+  }
+  #VN {
+    fill: #199900;
+  }
+  #VN:hover {
+    fill: #4A3400;
+  }
   html {
     box-sizing: border-box;
   }
@@ -39,9 +103,8 @@
     height: 100%;
   }
   body {
-    background: #64BF56;
   
-    color: #d3ddef;
+    color: #64BF56;
   }
   
   .ag-canvas {

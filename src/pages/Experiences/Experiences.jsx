@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import FlagDisplay from "../../components/FlagDisplay";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -32,7 +33,7 @@ function Experiences() {
 
   return (
     <>
-    <h1>{location}</h1>
+    <FlagDisplay location = {location}/>
       <button onClick={() => filterExperience("Xtreme")}>Xtreme</button>
       <button onClick={() => filterExperience("Cultural")}>Cultural</button>
       <button onClick={() => filterExperience("Gastronomic")}>Gastronomic</button>
