@@ -6,6 +6,7 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
+import Footer from "./components/Footer";
 
 
 import Navbar from "./components/Navbar/Navbar";
@@ -64,6 +65,7 @@ function App() {
         />
 
       </Routes>
+        <Footer/>
     </div>
   );
 }
