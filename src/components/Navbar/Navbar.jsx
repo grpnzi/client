@@ -15,8 +15,13 @@ function Navbar() {
   // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+  const estiloFooter = {
+    backgroundColor: '#FCE38A',
+    height: '75px'
+  };
+
   return (
-    <nav className="navbar px-4 navbar-expand-lg navbar-light bg-light">
+    <nav style={estiloFooter} className="navbar px-4 navbar-expand-lg">
 
       <style>
         {`
@@ -24,12 +29,16 @@ function Navbar() {
           .share-font {
             font-family: 'Share', sans-serif;
           }
+
         `}
       </style>
       
       <Link style={{ fontFamily: 'Russo One' }} className="navbar-brand ml-4" to="/">
-        wildXperience
-      </Link>
+        <div className=" d-flex align-items-center mr-2">
+          <p className="mb-0 mr-23">wildXperience</p>
+          <img src={process.env.PUBLIC_URL + '/logo 3.png'} alt="Mi Logo" className="mr-2" style={{ width: '60px' }} />
+        </div>
+      </Link> 
       <button
         className="navbar-toggler"
         type="button"
@@ -50,7 +59,7 @@ function Navbar() {
                 {user && user.name}
                 </Link>
               </li>
-              <li style={{ fontFamily: 'Montserrat', color:'black' }} className="nav-item font-weight-bold">
+              <li style={{ fontFamily: 'Share', color:'black' }} className="nav-item font-weight-bold">
                 <button className="nav-link" onClick={logOutUser}>
                   Logout
                 </button>
@@ -60,12 +69,12 @@ function Navbar() {
           {!isLoggedIn && (
             <>
               <li className="nav-item">
-                <Link className="nav-link font-weight-bold share-font" to="/signup">
+                <Link style={{ color: 'black'}} className="nav-link font-weight-bold share-font" to="/signup">
                   Sign Up
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link share-font" to="/login">
+                <Link style={{ color: 'black'}}  className="nav-link share-font" to="/login">
                   Login
                 </Link>
               </li>
