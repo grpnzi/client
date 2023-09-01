@@ -49,19 +49,11 @@ function App() {
         />
         <Route
           path="/country/:location/:experienceId"
-          element={
-            <IsAnon>
-              <ExperienceDetail />
-            </IsAnon>
-          }
+          element={<ExperienceDetail />}
         />
         <Route
           path="/country/:location/experiences"
-          element={
-           
-              <Experiences />
-            
-          }
+          element={<Experiences />}
         />
         <Route
           path="/cart"
