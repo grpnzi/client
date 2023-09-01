@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+import AddToCart from "./pages/Cart/AddToCart";
 
 function App() {
   return (
@@ -54,6 +55,15 @@ function App() {
             </IsAnon>
           }
         />
+        <Route
+          path="/cart"
+          element={
+            <IsAnon>
+              <AddToCart />
+            </IsAnon>
+          }
+        />
+
       </Routes>
         <Footer/>
     </div>
