@@ -35,21 +35,10 @@ function ExperienceDetail() {
 
     }, []);
 
-    useEffect(() => {
-
-        fetch(apiUrlReviews)
-            .then(response => response.json())
-            .then((data) => {
-                console.log(data, 'reviews');
-                return setExpReviews(data)
-            })
-            .catch((err) => console.log(err))
-
-    }, []);
 
     return (
         <>
-            {(!experience || !expReviews) ? <p>Loading...</p>
+            {(!experience || !expReviews || !expReviews.reviews) ? <p>Loading...</p>
                 :
                 <>
                     <div className="container-fluid">
