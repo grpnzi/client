@@ -1,7 +1,7 @@
-#UA {
+#ES {
     fill: #0f0;
   }
-  #UA:hover {
+  #ES:hover {
     fill: #008000;
   }
   #ID {
@@ -9,7 +9,13 @@
   }
   #ID:hover {
     fill: #800000;
+    
   }
+  #TH {
+    fill: #4A3476;
+  }
+  #TH:hover {
+    fill: #805678;}
   #GL {
     fill: #FFF;
   }
@@ -33,7 +39,7 @@
     height: 100%;
   }
   body {
-    background: #21252b;
+    background: #64BF56;
   
     color: #d3ddef;
   }
@@ -65,7 +71,7 @@
   .ag-canvas_svg path {
     fill: #383d46;
     fill-opacity: 1;
-    stroke: #21252b;
+    stroke: #E6E377;
     stroke-opacity: 1;
     stroke-width: 0.5;
     transition: 0.5s;
