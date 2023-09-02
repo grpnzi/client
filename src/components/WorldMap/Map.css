@@ -2,6 +2,12 @@
     background-color: #E3E5CE;
   }
 
+  #ES {
+    fill: #008000;
+  }
+  #ES:hover {
+    fill: #008000;
+  }
   #AR {
     fill: #008000;
   }
