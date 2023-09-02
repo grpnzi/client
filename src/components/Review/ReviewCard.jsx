@@ -44,6 +44,55 @@ function ReviewCard(props) {
 
     }
 
+    const editComment = (event, review) => {
+        const apiUrlDelete = `${process.env.REACT_APP_SERVER_URL}/reviews/${experienceId}/edit`;
+        event.preventDefault();
+
+        const updatedReview = {
+            comment: review.comment,
+            reviewId: review.reviewId
+        }
+
+        fetch(apiUrlDelete, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedReview),
+        })
+        .then(() => getReviews())
+        .catch(err => console.log('Error: ', err))
+
+    }
+
+    const likeComment = (event, reviewId) => {
+        const apiUrlLike= `${process.env.REACT_APP_SERVER_URL}/reviews/like`;
+        event.preventDefault();
+
+
+        const updatedReview = {
+            userId: user._id, 
+            reviewId: reviewId
+        }
+
+        fetch(apiUrlLike, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedReview),
+        })
+        .then((response) => {
+            if (response.ok) {
+                getReviews();
+            } else {
+                console.error('Like/Unlike operation failed');
+            }
+        })
+        .catch(err => console.log('Error: ', err))
+
+    }
+
     return (
         <MDBCol md="11" lg="9" xl="7">
             <div className="d-flex flex-start mb-4">
@@ -68,17 +117,23 @@ function ReviewCard(props) {
                             <p>{review.comment}</p>
 
                             <div className="d-flex justify-content-between align-items-center">
-                                <div className="d-flex align-items-center">
-                                    <a href="#!" className="link-muted me-2"><MDBIcon fas icon="thumbs-up me-1" />{review.likes.length}</a>
-                                </div>
+                                <button className="like" onClick={(event) => likeComment(event, review._id)}>✌️{review.likes.length}</button>
                             </div>
                         </div>
                     </MDBCardBody>
                 </MDBCard>
-                {review.author._id === user?._id &&
-                    <div className='delete'>
-                    <Button variant="outline-danger" onClick={(event) => deleteComment(event, {reviewId: review._id})}>Delete</Button>
-                </div>}
+                <div className='buttonsContainer'>
+                    {review.author._id === user?._id &&
+                        <div className='edit'>
+                            <Button variant="outline-primary">Edit</Button>
+                        </div>
+                    }
+                    {review.author._id === user?._id &&
+                        <div className='delete'>
+                            <Button variant="outline-danger" onClick={(event) => deleteComment(event, {reviewId: review._id})}>Delete</Button>
+                        </div>
+                    }
+                </div>
             </div>
         </MDBCol>
     )
