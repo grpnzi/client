@@ -1,8 +1,10 @@
 import { formatDistanceToNow } from 'date-fns';
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import './ReviewCard.css'
 import Button from "react-bootstrap/esm/Button";
+import Form from "react-bootstrap/esm/Form";
 import { AuthContext } from "../../context/auth.context";
+import { Link } from "react-router-dom";
 import {
     MDBCard,
     MDBCardBody,
@@ -14,7 +16,10 @@ import {
 
 function ReviewCard(props) {
     const { review, experienceId, getReviews } = props
+    const [isEditing, setIsEditing] = useState(false);
+    const [commentEdited, setComment] = useState("");
     const { user } = useContext(AuthContext);
+    const handleCommentInput = e => setComment(e.target.value);
 
     const getTimeElapsed = (createdAt) => {
         const currentTime = new Date();
@@ -39,8 +44,71 @@ function ReviewCard(props) {
             },
             body: JSON.stringify(reviewId),
         })
-        .then(() => getReviews())
-        .catch(err => console.log('Error: ', err))
+            .then(() => getReviews())
+            .catch(err => console.log('Error: ', err))
+
+    }
+
+    const editComment = (event, review) => {
+        const apiUrlEdit = `${process.env.REACT_APP_SERVER_URL}/reviews/edit`;
+        event.preventDefault();
+
+        const { _id } = review
+
+        console.log(commentEdited);
+        const updatedReview = {
+            comment: commentEdited,
+            reviewId: _id
+        }
+
+        fetch(apiUrlEdit, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedReview),
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Update request failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Update successful:", data); // Debugging
+                setIsEditing(false);
+                getReviews();
+            })
+            .catch(err => {
+                console.error('Error:', err);
+            });
+    }
+
+    const likeComment = (event, reviewId) => {
+        const apiUrlLike = `${process.env.REACT_APP_SERVER_URL}/reviews/like`;
+        event.preventDefault();
+
+
+        const updatedReview = {
+            userId: user._id,
+            reviewId: reviewId
+        }
+
+        fetch(apiUrlLike, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedReview),
+        })
+            .then((response) => {
+                if (response.ok) {
+                    getReviews();
+                } else {
+                    console.error('Like/Unlike operation failed');
+                }
+            })
+            .catch(err => console.log('Error: ', err))
 
     }
 
@@ -65,20 +133,38 @@ function ReviewCard(props) {
 
                                 </>
                             )}
-                            <p>{review.comment}</p>
+                            {isEditing ?
+                                <Form onSubmit={(event) => editComment(event, review)}>
+                                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                        <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
+                                        <Button type="submit" variant="outline-info">Publish</Button>
+                                    </Form.Group>
+                                </Form>
+                                :
+                                <p>{review.comment}</p>
+                            }
 
                             <div className="d-flex justify-content-between align-items-center">
-                                <div className="d-flex align-items-center">
-                                    <a href="#!" className="link-muted me-2"><MDBIcon fas icon="thumbs-up me-1" />{review.likes.length}</a>
-                                </div>
+                                {user?._id ? <button className="like" onClick={(event) => likeComment(event, review._id)}>✌️{review.likes.length}</button>
+                                    :
+                                    <Link to="/login"><button className="like">✌️{review.likes.length}</button></Link>
+                                }
                             </div>
                         </div>
                     </MDBCardBody>
                 </MDBCard>
-                {review.author._id === user?._id &&
-                    <div className='delete'>
-                    <Button variant="outline-danger" onClick={(event) => deleteComment(event, {reviewId: review._id})}>Delete</Button>
-                </div>}
+                <div className='buttonsContainer'>
+                    {review.author._id === user?._id &&
+                        <div className='edit'>
+                            <Button variant="outline-primary" onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
+                        </div>
+                    }
+                    {review.author._id === user?._id &&
+                        <div className='delete'>
+                            <Button variant="outline-danger" onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
+                        </div>
+                    }
+                </div>
             </div>
         </MDBCol>
     )
