@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Review from "../../components/Review";
-import { formatDistanceToNow } from 'date-fns';
+import Review from "../../components/Review/Review";
+import ReviewCard from "../../components/Review/ReviewCard";
 
 import {
-    MDBCard,
-    MDBCardBody,
-    MDBCol,
     MDBContainer,
-    MDBIcon,
     MDBRow,
-    MDBTypography,
 } from "mdb-react-ui-kit";
 
 function ExperienceDetail() {
@@ -31,19 +26,6 @@ function ExperienceDetail() {
             })
             .catch((err) => console.log(err))
     }
-
-    const getTimeElapsed = (createdAt) => {
-        const currentTime = new Date();
-        const differenceInSeconds = Math.floor(
-            (currentTime - createdAt) / 1000
-        ); // Calculate the difference in seconds
-
-        if (differenceInSeconds < 10) {
-            return 'Just now'; // Display "Just now" for very recent timestamps
-        } else {
-            return formatDistanceToNow(createdAt, { addSuffix: true });
-        }
-    };
 
     useEffect(() => {
 
@@ -90,39 +72,9 @@ function ExperienceDetail() {
                             <MDBContainer className="py-5" style={{ maxWidth: "1000px" }}>
                                 <MDBRow className="justify-content-center">
                                     {expReviews.reviews.map((review) => (
-                                        <MDBCol md="11" lg="9" xl="7" key={review._id}>
-                                            <div className="d-flex flex-start mb-4">
-                                                <img
-                                                    className="rounded-circle shadow-1-strong me-3"
-                                                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
-                                                    alt="avatar"
-                                                    width="65"
-                                                    height="65"
-                                                />
-
-                                                <MDBCard className="w-100">
-                                                    <MDBCardBody className="p-4">
-                                                        <div>
-                                                            {review.author && (
-                                                                <>
-                                                                    <MDBTypography tag="h5">{review.author.name}</MDBTypography>
-                                                                    <p className="small">Published {getTimeElapsed(new Date(review.createdAt))}</p>
-
-                                                                </>
-                                                            )}
-                                                            <p>{review.comment}</p>
-
-                                                            <div className="d-flex justify-content-between align-items-center">
-                                                                <div className="d-flex align-items-center">
-                                                                    <a href="#!" className="link-muted me-2"><MDBIcon fas icon="thumbs-up me-1" />{review.likes.length}</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </MDBCardBody>
-                                                </MDBCard>
-
-                                            </div>
-                                        </MDBCol>
+                                        <React.Fragment key={review._id}>
+                                            <ReviewCard review={review} experienceId={experienceId} getReviews={getReviews}/>
+                                        </React.Fragment>
                                     ))}
                                 </MDBRow>
                             </MDBContainer>
