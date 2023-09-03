@@ -1,48 +1,42 @@
 .buttonsContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
-.delete {
-    width: 100%;
-}
+@media (max-width: 991.98px) {
+    .buttonsContainer {
+        flex-direction: column;
+      }
+    
+      .delete,
+      .edit {
+        width: 80%; /* Adjust the width as needed for small screens */
+      }
+    
+      .delete .btn-outline-danger,
+      .edit .btn-outline-primary {
+        border-radius: 2vw !important;
+        width: 100%;
+      }
+  }
+  
+  /* For large screens (viewport width ≥ 992px) */
+  @media (min-width: 992px) {
+    .buttonsContainer {
+        flex-direction: row;
+      }
+    
+      .delete,
+      .edit {
+        width: 40%; /* Adjust the width as needed for large screens */
+      }
+    
+      .delete .btn-outline-danger,
+      .edit .btn-outline-primary {
+        border-radius: 2vw !important;
+        width: 100%;
+      }
+  }
 
-.delete .btn-outline-danger {
-    border-radius: 2vw !important;
-    width: 100%;
-}
-
-.delete .btn-outline-danger:hover {
-    background-color: #dc3545 !important;
-    color: #fff !important;
-    border-color: #dc3545 !important;
-}
-
-
-.edit {
-    width: 100%;
-}
-
-
-.edit .btn-outline-primary {
-    border-radius: 2vw !important;
-    width: 100%;
-}
-
-.edit .btn-outline-primary:hover {
-    background-color: #0084ff !important;
-    color: #fff !important;
-    border-color: #0084ff !important;
-}
-
-.like {
-    width: 100px;
-    height: 30px;
-}
-
-.d-flex.align-items-center {
-    width: 20px;
-    height: 20px;
-}

@@ -60,8 +60,8 @@ function FormLogin(props) {
     return (
         <>
         <IsPrivate>
-            <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form onSubmit={handleSubmit} className="d-flex justify-content-center mt-5">
+                <Form.Group className="mb-3 w-50 w-sm-100" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Your comment...</Form.Label>
                     <Form.Control as="textarea" rows={3} name="comment" value={comment} onChange={handleCommentInput} />
                     <Button type="submit" variant="outline-info">Publish</Button>

@@ -75,7 +75,7 @@ function ReviewCard(props) {
                 return response.json();
             })
             .then(data => {
-                console.log("Update successful:", data); // Debugging
+                console.log("Update successful:", data);
                 setIsEditing(false);
                 getReviews();
             })
@@ -144,27 +144,33 @@ function ReviewCard(props) {
                                 <p>{review.comment}</p>
                             }
 
-                            <div className="d-flex justify-content-between align-items-center">
-                                {user?._id ? <button className="like" onClick={(event) => likeComment(event, review._id)}>✌️{review.likes.length}</button>
+                            <div>
+                                {user?._id ? <Button variant="outline-dark" onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</Button>
                                     :
-                                    <Link to="/login"><button className="like">✌️{review.likes.length}</button></Link>
+                                    <Link to="/login"><button className="like">❤️{review.likes.length}</button></Link>
                                 }
                             </div>
                         </div>
+                        <div className='buttonsContainer'>
+                            {review.author._id === user?._id && (
+                                <div className='edit'>
+                                    {isEditing ? (
+                                        <Button variant="outline-primary" onClick={() => { setIsEditing(false); }}>Cancel</Button>
+                                    ) : (
+                                        <Button variant="outline-primary" onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
+                                    )}
+                                </div>
+                            )}
+
+                            {(review.author._id === user?._id && isEditing) && (
+                                <div className='delete'>
+                                    <Button variant="outline-danger" onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
+                                </div>
+                            )}
+                        </div>
                     </MDBCardBody>
                 </MDBCard>
-                <div className='buttonsContainer'>
-                    {review.author._id === user?._id &&
-                        <div className='edit'>
-                            <Button variant="outline-primary" onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
-                        </div>
-                    }
-                    {review.author._id === user?._id &&
-                        <div className='delete'>
-                            <Button variant="outline-danger" onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
-                        </div>
-                    }
-                </div>
+
             </div>
         </MDBCol>
     )

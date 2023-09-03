@@ -4,6 +4,7 @@ import FlagDisplay from "../../components/FlagDisplay";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import './Experiences.css'
 
 function Experiences() {
   const { location } = useParams();
@@ -33,35 +34,41 @@ function Experiences() {
 
   return (
     <>
-    <FlagDisplay location = {location}/>
+      <FlagDisplay location={location} />
       <button onClick={() => filterExperience("Xtreme")}>Xtreme</button>
       <button onClick={() => filterExperience("Cultural")}>Cultural</button>
       <button onClick={() => filterExperience("Gastronomic")}>Gastronomic</button>
-      {!experienceFiltered ? <p>Choose your experience</p>:
-      <>
-      {!experienceFiltered ? (
-        <p>Setting your experiences...</p>
-      ) : (
+      {!experienceFiltered ? <p>Choose your experience</p> :
         <>
-         
-         {experienceFiltered.map((experience) => (
-  <Card style={{ width: "18rem" }} key={experience._id}>
-    <Card.Img variant="top" src={experience.imageUrl} />
-    <Card.Body>
-      <Card.Title>{experience.title}</Card.Title>
-      <Card.Text>{experience.description}</Card.Text>
-      <Link to={`/country/${location}/${experience._id}`} ><Button variant="primary">Go somewhere</Button></Link>
-      
-    </Card.Body>
-  </Card>
-))}
-
-
+          {!experienceFiltered ? (
+            <p>Setting your experiences...</p>
+          ) : (
+            <>
+              <div className="d-flex flex-wrap justify-content-center justify-content-lg-start">
+                {experienceFiltered.map((experience) => (
+                  <div className="p-2" key={experience._id}>
+                    <Card style={{ width: "18rem" }} className="h-100">
+                      <Card.Img
+                        variant="top"
+                        src={experience.imageUrl}
+                        className="card-img-fixed-height"
+                      />
+                      <Card.Body className="text-center">
+                        <Card.Title>{experience.title}</Card.Title>
+                        <Card.Text>{experience.experienceType}</Card.Text>
+                        <Card.Text>${experience.price}</Card.Text>
+                        <Link to={`/country/${location}/${experience._id}`}>
+                          <Button variant="primary">Read more...</Button>
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </>
-
-      )}
-      </>
-}
+      }
     </>
   );
 }

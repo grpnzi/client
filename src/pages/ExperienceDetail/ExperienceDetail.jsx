@@ -51,10 +51,12 @@ function ExperienceDetail() {
             {(!experience || !expReviews || !expReviews.reviews) ? <p>Loading...</p>
                 :
                 <>
-                    <div className="container-fluid">
-                        <div className="row">
+                    <div className="container-fluid mt-5">
+                        <div className="row d-flex">
                             <div className="col-md-6">
-                                <img src={experience.imageUrl} alt={experience.title} className="img-fluid" />
+                                <div className="d-flex align-items-center h-100 w-100 justify-content-center"> 
+                                    <img src={experience.imageUrl} alt={experience.title} className="img-fluid" />
+                                </div>
                             </div>
                             <div className="col-md-6">
                                 <h1 className="mt-4">{experience.title}</h1>
