@@ -29,10 +29,11 @@ function FormLogin(props) {
         e.preventDefault();
 
         const matches = reviews.reviews.filter((review) => {
-            return review.author._id === user._id
+            return (review.author._id === user._id)
         })
 
-        if (matches.length > 0) {
+        console.log(matches);
+        if (!matches.length == 0) {
            setComment('You have already commented, update the older message or delete the older one');
         } else {
             
@@ -40,7 +41,7 @@ function FormLogin(props) {
                 comment,
                 userId: user._id,
             };
-            console.log(newReview);
+
             fetch(apiUrlReviews, {
                 method: 'POST',
                 headers: {

@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useParams, Link } from 'react-router-dom'
+import IsPrivate from '../../components/IsPrivate/IsPrivate';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from "../../components/CartDetails/Cart";
 
@@ -8,7 +7,9 @@ function AddToCart(){
 
 return(
     <div>
-    <Cart />
+        <IsPrivate>
+            <Cart />
+        </IsPrivate>
     </div>
 )
 
