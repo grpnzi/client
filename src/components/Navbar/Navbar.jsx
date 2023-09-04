@@ -5,6 +5,9 @@ import { AuthContext } from "../../context/auth.context";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'typeface-russo-one';
 import 'typeface-montserrat'
+import { Button } from "react-bootstrap";
+import { MdAddShoppingCart } from "react-icons/md";
+
 
 
 
@@ -40,7 +43,7 @@ function Navbar() {
         </div>
       </Link> 
       <button
-        className="navbar-toggler"
+        className="navbar-toggler ml-auto"
         type="button"
         data-toggle="collapse"
         data-target="#navbarNav"
@@ -50,8 +53,8 @@ function Navbar() {
         >
         <span className="navbar-toggler-icon"></span>
       </button>
-      <div className="collapse navbar-collapse justify-content-end mr-4" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
+      <div className="collapse navbar-collapse ml-auto justify-content-end mr-4" id="navbarNav">
+        <ul className="navbar-nav">
           {isLoggedIn && (
             <>
               <li className="nav-item">
@@ -68,12 +71,16 @@ function Navbar() {
           )}
           {!isLoggedIn && (
             <>
-              <li className="nav-item">
+            <Link to="/cart" className="btn" style={{ padding: '5px 10px' }}>
+  <MdAddShoppingCart className="me-2 bg-warning" style={{ fontFamily: 'Share', fontSize: '24px' }} />
+  Add to Cart
+</Link>
+              <li className="nav-item ml-auto d-flex justify-content-end">
                 <Link style={{ color: 'black'}} className="nav-link font-weight-bold share-font" to="/signup">
                   Sign Up
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ml-auto d-flex justify-content-end">
                 <Link style={{ color: 'black'}}  className="nav-link share-font" to="/login">
                   Login
                 </Link>

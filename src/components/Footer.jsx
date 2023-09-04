@@ -12,10 +12,10 @@ export default function App() {
 
     return (
         <MDBFooter style={estiloFooter} className='text-center text-lg-start text-muted mt-5 pt-2'>
-            <section className='d-flex justify-content-center justify-content-lg-between p-1 border-bottom'>
-            </section>
+            {/* <section className='d-flex justify-content-center justify-content-lg-between p-1 border-bottom'>
+            </section> */}
 
-            <section className=''>
+            <section className='p-2'>
                 <MDBContainer className='text-center text-md-start mt-2'>
                     <MDBRow className='mt-2'>
                         <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4 text-center'>
@@ -115,10 +115,10 @@ export default function App() {
             </section>
 
             <div className='text-center p-4' style={{ backgroundColor: 'black', color: 'white' }}>
-                © 2023 Copyright:
                 <a className='text-reset fw-bold' href='/'>
-                    wildXperience
+                 <p>&copy; {new Date().getFullYear()} wildXperience</p>
                 </a>
+                
             </div>
         </MDBFooter>
     );
