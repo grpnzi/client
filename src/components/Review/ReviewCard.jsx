@@ -117,7 +117,7 @@ function ReviewCard(props) {
             <div className="d-flex flex-start mb-4">
                 <img
                     className="rounded-circle shadow-1-strong me-3"
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp"
+                    src={review.author.img}
                     alt="avatar"
                     width="65"
                     height="65"
