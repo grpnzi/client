@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from "../../components/Review/Review";
 import ReviewCard from "../../components/Review/ReviewCard";
+import { CartContext } from "../../context/cart.context";
 
 import {
     MDBContainer,
@@ -10,13 +11,14 @@ import {
 } from "mdb-react-ui-kit";
 
 function ExperienceDetail() {
+    const {cart,cartUpdate} = useContext(CartContext)
     const { experienceId, location } = useParams();
     const [experience, setExperience] = useState(null);
     const [expReviews, setExpReviews] = useState(null);
 
     const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/${location}/${experienceId}`
     const apiUrlReviews = `${process.env.REACT_APP_SERVER_URL}/reviews/${experienceId}`
-
+    console.log(cart);
     function getReviews() {
         fetch(apiUrlReviews)
             .then(response => response.json())
@@ -63,7 +65,7 @@ function ExperienceDetail() {
                                 <p className="lead">{experience.description}</p>
                                 <p className="mt-4">
                                     Price: ${experience.price}
-                                    <button className="btn btn-primary ml-2">Book Now</button>
+                                    <button className="btn btn-primary ml-2" onClick={()=>{cartUpdate(experience)}}>Book Now</button>
                                 </p>
                             </div>
                         </div>

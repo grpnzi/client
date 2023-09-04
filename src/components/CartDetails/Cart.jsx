@@ -1,25 +1,26 @@
 
-
+import { CartContext } from "../../context/cart.context";
+import { useContext, useState } from "react";
 import {
-    MDBBtn,
-    MDBCard,
-    MDBCardBody,
-    MDBCardImage,
-    MDBCol,
-    MDBContainer,
-    MDBIcon,
-    MDBInput,
-    MDBRow,
-    MDBTypography,
-    } from "mdb-react-ui-kit";
-    import React from "react";
-    
-    function Cart() {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardImage,
+  MDBCol,
+  MDBContainer,
+  MDBIcon,
+  MDBInput,
+  MDBRow,
+  MDBTypography,
+} from "mdb-react-ui-kit";
+import React from "react";
+
+function Cart() {
+  const { cart } = useContext(CartContext)
+console.log(cart)
 
 
-
-
-    return (
+  return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5 h-100">
         <MDBRow className="justify-content-center align-items-center h-100">
@@ -34,13 +35,13 @@ import {
                         shopping
                       </a>
                     </MDBTypography>
-    
+
                     <hr />
-    
+
                     <div className="d-flex justify-content-between align-items-center mb-4">
                       <div>
                         <p className="mb-1">Shopping cart</p>
-                        <p className="mb-0">You have 4 items in your cart</p>
+                        <p className="mb-0">You have {cart?.length} items in your cart</p>
                       </div>
                       <div>
                         <p>
@@ -52,46 +53,50 @@ import {
                         </p>
                       </div>
                     </div>
-    
-                    <MDBCard className="mb-3">
-                      <MDBCardBody>
-                        <div className="d-flex justify-content-between">
-                          <div className="d-flex flex-row align-items-center">
-                            <div>
-                              <MDBCardImage
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                fluid className="rounded-3" style={{ width: "65px" }}
-                                alt="Shopping item" />
-                            </div>
-                            <div className="ms-3">
-                              <MDBTypography tag="h5">
-                                Iphone 11 pro
-                              </MDBTypography>
-                              <p className="small mb-0">256GB, Navy Blue</p>
-                              <p className="small mb-0">Product ID</p>
 
+                    {cart?.map((experience) => {
+                      <MDBCard className="mb-3">
+                        <MDBCardBody>
+                          <div className="d-flex justify-content-between">
+                            <div className="d-flex flex-row align-items-center">
+                              <div>
+                                <MDBCardImage
+                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                  fluid className="rounded-3" style={{ width: "65px" }}
+                                  alt="Shopping item" />
+                              </div>
+                              <div className="ms-3">
+                                <MDBTypography tag="h5">
+                                  {experience.title}
+                                </MDBTypography>
+                                <p className="small mb-0">256GB, Navy Blue</p>
+                                <p className="small mb-0">Product ID</p>
+
+                              </div>
+                            </div>
+                            <div className="d-flex flex-row align-items-center">
+                              <div style={{ width: "50px" }}>
+                                <MDBTypography tag="h5" className="fw-normal mb-0">
+                                  1
+                                </MDBTypography>
+                              </div>
+                              <div style={{ width: "80px" }}>
+                                <MDBTypography tag="h5" className="mb-0">
+                                  ${experience.price}
+                                </MDBTypography>
+                              </div>
+                              <a href="#!" style={{ color: "#cecece" }}>
+                                <MDBIcon fas icon="trash-alt" />
+                              </a>
                             </div>
                           </div>
-                          <div className="d-flex flex-row align-items-center">
-                            <div style={{ width: "50px" }}>
-                              <MDBTypography tag="h5" className="fw-normal mb-0">
-                                2
-                              </MDBTypography>
-                            </div>
-                            <div style={{ width: "80px" }}>
-                              <MDBTypography tag="h5" className="mb-0">
-                                $900
-                              </MDBTypography>
-                            </div>
-                            <a href="#!" style={{ color: "#cecece" }}>
-                              <MDBIcon fas icon="trash-alt" />
-                            </a>
-                          </div>
-                        </div>
-                      </MDBCardBody>
-                    </MDBCard>
+                        </MDBCardBody>
+                      </MDBCard>
+                    })}
+
+
                   </MDBCol>
-    
+
                   <MDBCol lg="5">
                     <MDBCard className="bg-primary text-white rounded-3">
                       <MDBCardBody>
@@ -100,7 +105,7 @@ import {
                             Card details
                           </MDBTypography>
                         </div>
-    
+
                         <p className="small">Card type</p>
                         <a href="#!" type="submit" className="text-white">
                           <MDBIcon fab icon="cc-mastercard fa-2x me-2" />
@@ -114,14 +119,14 @@ import {
                         <a href="#!" type="submit" className="text-white">
                           <MDBIcon fab icon="cc-paypal fa-2x me-2" />
                         </a>
-    
+
                         <form className="mt-4">
                           <MDBInput className="mb-4" label="Cardholder's Name" type="text" size="lg"
                             placeholder="Cardholder's Name" contrast />
-    
+
                           <MDBInput className="mb-4" label="Card Number" type="text" size="lg"
                             minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
-    
+
                           <MDBRow className="mb-4">
                             <MDBCol md="6">
                               <MDBInput className="mb-4" label="Expiration" type="text" size="lg"
@@ -133,24 +138,24 @@ import {
                             </MDBCol>
                           </MDBRow>
                         </form>
-    
+
                         <hr />
-    
+
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Subtotal</p>
                           <p className="mb-2">$4798.00</p>
                         </div>
-    
+
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Shipping</p>
                           <p className="mb-2">$20.00</p>
                         </div>
-    
+
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Total(Incl. taxes)</p>
                           <p className="mb-2">$4818.00</p>
                         </div>
-    
+
                         <MDBBtn color="info" block size="lg">
                           <div className="d-flex justify-content-between">
                             <span>$4818.00</span>
@@ -170,7 +175,7 @@ import {
         </MDBRow>
       </MDBContainer>
     </section>
-    );
-    }
+  );
+}
 
-    export default Cart;
+export default Cart;
