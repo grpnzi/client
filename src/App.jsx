@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import AddToCart from "./pages/Cart/AddToCart";
+import UserProfile from "./components/Profile/UserProfile";
 
 function App() {
   return (
@@ -60,6 +61,12 @@ function App() {
           element={
             <AddToCart />
           }
+        />
+         <Route
+          path="/profile/:profileId"
+          element={
+          <UserProfile />
+        }
         />
 
       </Routes>
