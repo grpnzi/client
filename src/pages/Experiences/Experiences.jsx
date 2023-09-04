@@ -38,6 +38,12 @@ function Experiences() {
       <button onClick={() => filterExperience("Xtreme")}>Xtreme</button>
       <button onClick={() => filterExperience("Cultural")}>Cultural</button>
       <button onClick={() => filterExperience("Gastronomic")}>Gastronomic</button>
+      <h2>Three Unique Experiences</h2>
+      <ul className="list-down">
+        <li><strong>Xtreme Adventures:</strong> Seek the adrenaline rush? Our Xtreme experiences are designed to thrill, from scaling towering peaks to diving into the depths of the ocean, pushing boundaries and igniting your sense of adventure.</li>
+        <li><strong>Cultural Immersion:</strong> We believe the heart of any journey lies in its culture. Delve deep into traditions, history, and vibrant customs through our Cultural experiences. Engage with local communities, participate in ancient rituals, and gain insights that go beyond the surface.</li>
+        <li><strong>Gastronomic Delights:</strong> Food is a universal language, and our Gastronomic experiences celebrate the world's culinary treasures. Discover a country's soul through its flavors, savoring street food delicacies to fine dining in historic settings, all while uncovering the stories behind each dish.</li>
+      </ul>
       {!experienceFiltered ? <p>Choose your experience</p> :
         <>
           {!experienceFiltered ? (
@@ -58,8 +64,9 @@ function Experiences() {
                         <Card.Text>{experience.experienceType}</Card.Text>
                         <Card.Text>${experience.price}</Card.Text>
                         <Link to={`/country/${location}/${experience._id}`}>
-                          <Button variant="primary">Read more...</Button>
+                          <button className="h-10" >Read more...</button>
                         </Link>
+
                       </Card.Body>
                     </Card>
                   </div>
