@@ -113,14 +113,14 @@ function ReviewCard(props) {
     }
 
     return (
-        <MDBCol md="11" lg="9" xl="7">
-            <div className="d-flex flex-start mb-4">
+        <MDBCol md="8" lg="9" xl="7">
+            <div className="d-flex flex-start mb-3">
                 <img
-                    className="rounded-circle shadow-1-strong me-3"
+                    className="rounded-circle shadow-1-strong me-1"
                     src={review.author.img}
                     alt="avatar"
-                    width="65"
-                    height="65"
+                    width="80"
+                    height="80"
                 />
 
                 <MDBCard className="w-100">
@@ -128,14 +128,14 @@ function ReviewCard(props) {
                         <div>
                             {review.author && (
                                 <>
-                                    <MDBTypography tag="h5">{review.author.name}</MDBTypography>
+                                    <MDBTypography tag="h3">{review.author.name}</MDBTypography>
                                     <p className="small">Published {getTimeElapsed(new Date(review.createdAt))}</p>
 
                                 </>
                             )}
                             {isEditing ?
                                 <Form onSubmit={(event) => editComment(event, review)}>
-                                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                    <Form.Group className="mb-1" controlId="exampleForm.ControlTextarea1">
                                         <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
                                         <Button type="submit" variant="outline-info">Publish</Button>
                                     </Form.Group>
