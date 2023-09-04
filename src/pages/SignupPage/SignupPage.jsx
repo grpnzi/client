@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import { CloudinaryContext, Image } from 'cloudinary-react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -9,6 +10,7 @@ function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const navigate = useNavigate();
@@ -17,21 +19,28 @@ function SignupPage() {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
 
+  const handleImage = (e) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', 'qh39k8v5'); // Replace with your Cloudinary upload preset
+
+    fetch(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}/image/upload`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setImage(data.secure_url); // Set the image URL returned by Cloudinary
+      })
+      .catch((error) => console.error('Error uploading image: ', error));
+  };
+
+
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     // Create an object representing the request body
-    const requestBody = { email, password, name };
-
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
+    const requestBody = { email, password, name, image };
 
     // Or using a service
     authService
@@ -106,8 +115,8 @@ function SignupPage() {
                 type="password"
                 name="password"
                 value={password}
-                onChange={handlePassword}
                 placeholder="Password"
+                onChange={handlePassword}
 
               />
             </div>
@@ -115,6 +124,35 @@ function SignupPage() {
               Must be 8-20 characters long.
             </small>
           </div>
+
+          <div className="col-md-5 mx-auto mb-3">
+          <label htmlFor="inlineFormInputGroup">Profile Image</label>
+          <div className="input-group">
+            <div className="input-group-prepend">
+              <span className="input-group-text">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-file-image" viewBox="0 0 16 16">
+                  <path d="M8.293 5.293a.5.5 0 0 1 .414-.121l2 1a.5.5 0 0 1 .293.455V11.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 2 11.5V4a1.5 1.5 0 0 1 1.5-1.5h4.793a.5.5 0 0 1 .414.121zM10.5 0A1.5 1.5 0 0 1 12 1.5v6a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-6A1.5 1.5 0 0 1 5 0h5.5z" />
+                  <path d="M9.293 5.293a.5.5 0 0 1 .707 0L11.5 6.793l1.646-1.647a.5.5 0 0 1 .708.708L12.207 7.5l1.647 1.646a.5.5 0 1 1-.708.708L11.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 7.5 9.146 5.854a.5.5 0 0 1 0-.708z" />
+                </svg>
+              </span>
+            </div>
+            <input
+              type="file"
+              className="form-control"
+              name="image"
+              accept="image/*"
+              onChange={handleImage}
+            />
+          </div>
+          {image && (
+            <div className="mt-2">
+              <CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
+                <Image publicId={image} width="150" />
+              </CloudinaryContext>
+            </div>
+          )}
+        </div>
+
           <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
           </div>
           <div className="col-md-6 mx-auto mb-3">
