@@ -18,16 +18,15 @@ export default function App() {
             <section className=''>
                 <MDBContainer className='text-center text-md-start mt-2'>
                     <MDBRow className='mt-2'>
-                        <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-                            <Link style={{ fontFamily: 'Russo One' }} className="navbar-brand ml-4" to="/">
-                                <div className=" d-flex align-items-center mr-2 mt-4    ">
-                                    <p style={{ color: 'black', fontSize: '24px' }} className="mb-0 mr-23">wildXperience</p>
-                                    <img src={process.env.PUBLIC_URL + '/logo 3.png'} alt="Mi Logo" className="mr-2" style={{ width: '80px' }} />
+                        <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4 text-center'>
+                            <Link style={{ fontFamily: 'Russo One' }} className="navbar-brand ml-4 " to="/">
+                                <div className="d-flex flex-column align-items-center">
+                                    <p style={{ color: 'black', fontSize: '24px' }} className="mb-0">wildXperience</p>
+                                    <img src={process.env.PUBLIC_URL + '/logo 3.png'} alt="Mi Logo" style={{ width: '80px' }} />
                                 </div>
                             </Link>
-                            <p>
-                            </p>
                         </MDBCol>
+
 
                         <MDBCol md="4" lg="2" xl="2" className='mx-auto mb-4' style={{ color: 'black' }}>
                             <h6 style={{ color: 'black' }} className='text-uppercase fw-bold mb-4 d-flex justify-content-center'>Products</h6>
@@ -77,35 +76,35 @@ export default function App() {
                             </p>
                         </MDBCol>
 
-                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4' style={{ color: 'black' }}>
+                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-4 ml-3 text-center text-md-center' style={{ color: 'black' }}>
                             <h6 style={{ color: 'black' }} className='text-uppercase fw-bold mb-4'>Contact</h6>
                             <p className='share-font'>
                                 <MDBIcon icon="home" className="me-3" />
                                 Tanzania
                             </p>
-                            <p className='share-font d-flex align-items-center'>
+                            <p className='share-font mx-auto mb-md-0 mb-4'>
                                 <MDBIcon icon="envelope" className="me-3" />
                                 info@wildXperience.com
                             </p>
-                            <p className='share-font d-flex align-items-center'>
+                            <p className='share-font mx-auto mb-md-0 mb-4 mt-3'>
                                 <MDBIcon icon="phone" className="me-3" />
                                 + 34 366 567 889
                             </p>
 
-                            <div>
-                                <a href='' className='me-4 text-reset'>
+                            <div className='mt-3 mx-auto mb-md-0 mb-4 ml-3'>
+                                <a href='' className='me-3 text-reset'>
                                     <MDBIcon style={{ color: 'black' }} fab icon="facebook-f" />
                                 </a>
-                                <a href='' className='me-4 text-reset'>
+                                <a href='' className='me-3 text-reset'>
                                     <MDBIcon style={{ color: 'black' }} fab icon="twitter" />
                                 </a>
-                                <a href='' className='me-4 text-reset'>
+                                <a href='' className='me-3 text-reset'>
                                     <MDBIcon style={{ color: 'black' }} fab icon="instagram" />
                                 </a>
-                                <a href='' className='me-4 text-reset'>
+                                <a href='' className='me-3 text-reset'>
                                     <MDBIcon style={{ color: 'black' }} fab icon="linkedin" />
                                 </a>
-                                <a href='' className='me-4 text-reset'>
+                                <a href='' className='me-1 text-reset'>
                                     <MDBIcon style={{ color: 'black' }} fab icon="github" />
                                 </a>
                             </div>
