@@ -1,0 +1,24 @@
+.about-down{
+    background-color:#BFC491;
+    text-align: center;
+    padding-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    
+}   
+.list-down{
+    list-style-type: none;
+}
+h2{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+button{
+    color:#BFC491 ;
+    background-color: #383d46 ;
+    padding: 2px, 2px, 2px, 2px;
+
+
+
+}
