@@ -135,7 +135,7 @@ function LoginPage() {
       </div>
     </div>
     <div className="col-md-6 mx-auto mb-3">
-      <button type="submit" className="btn btn-primary mb-4">Login</button>
+      <button type="submit" className="btn1 btn-dark ">Login</button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p>Don't have an account yet?</p>
       <Link to="/signup">Sign Up</Link>

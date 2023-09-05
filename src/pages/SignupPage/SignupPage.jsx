@@ -156,7 +156,7 @@ function SignupPage() {
           <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
           </div>
           <div className="col-md-6 mx-auto mb-3">
-            <button type="submit" className="btn btn-primary">Sign in</button>
+            <button type="submit" className="btn1 btn-dark">Sign in</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div>
