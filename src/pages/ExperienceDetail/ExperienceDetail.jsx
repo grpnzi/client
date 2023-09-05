@@ -12,7 +12,7 @@ import {
 } from "mdb-react-ui-kit";
 
 function ExperienceDetail() {
-    const {cart,cartUpdate} = useContext(CartContext)
+    const { cart, cartUpdate } = useContext(CartContext)
     const { experienceId, location } = useParams();
     const [experience, setExperience] = useState(null);
     const [expReviews, setExpReviews] = useState(null);
@@ -57,30 +57,20 @@ function ExperienceDetail() {
                     <div className="container-fluid mt-5">
                         <div className="row d-flex">
                             <div className="col-md-6">
-                                <div className="d-flex align-items-center h-100 w-100 justify-content-center"> 
-                                    <img src={experience.imageUrl} 
-                                    alt={experience.title} 
-                                    className="img-fluid" 
-                                    style={{ width: '1200px', height: '630px' }}
+                                <div className="d-flex align-items-center h-100 w-100 justify-content-center">
+                                    <img src={experience.imageUrl}
+                                        alt={experience.title}
+                                        className="img-fluid"
+                                        style={{ width: '1200px', height: '630px' }}
                                     />
-
-
-
-
-
-
-
-
-
-
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <h1 className="mt-4">{experience.title}</h1>
                                 <p className="lead">{experience.description}</p>
-                                <p className="mt-4" style={{fontFamily: 'Share', fontSize: '19px'}}>
+                                <p className="mt-4" style={{ fontFamily: 'Share', fontSize: '19px' }}>
                                     Price: ${experience.price}
-                                    <button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={()=>{cartUpdate(experience)}}>Purchase</button>
+                                    <button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { cartUpdate(experience) }}>Purchase</button>
                                 </p>
                             </div>
                         </div>
@@ -92,7 +82,7 @@ function ExperienceDetail() {
                                 <MDBRow className="justify-content-center">
                                     {expReviews.reviews.map((review) => (
                                         <React.Fragment key={review._id}>
-                                            <ReviewCard review={review} experienceId={experienceId} getReviews={getReviews}/>
+                                            <ReviewCard review={review} experienceId={experienceId} getReviews={getReviews} />
                                         </React.Fragment>
                                     ))}
                                 </MDBRow>

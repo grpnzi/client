@@ -18,7 +18,6 @@ function FormLogin(props) {
         fetch(apiUrlReviews)
             .then(response => response.json())
             .then((data) => {
-                console.log(data);
                 return setReviews(data)
             })
             .catch((err) => console.log(err))
