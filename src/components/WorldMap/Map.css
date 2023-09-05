@@ -38,10 +38,10 @@
   #KR:hover {
     fill: #000080;
   }
-  #MA {
+  #CA {
     fill: #008000;
   }
-  #MA:hover {
+  #CA:hover {
     fill: #008000;
   }
   #MN {
@@ -73,10 +73,10 @@
     fill: #800000;
     
   }
-  #PA {
+  #EG {
     fill: #008000;
   }
-  #PA:hover {
+  #EG:hover {
     fill: #008000;
   }
 
@@ -97,6 +97,18 @@
     fill: #199900;
   }
   #VN:hover {
+    fill: #4A3400;
+  }
+  #RU {
+    fill: #199900;
+  }
+  #RU:hover {
+    fill: #4A3400;
+  }
+  #ZA {
+    fill: #199900;
+  }
+  #ZA:hover {
     fill: #4A3400;
   }
   html {
