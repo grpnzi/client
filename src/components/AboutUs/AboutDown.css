@@ -1,12 +1,12 @@
 /* Default styles */
 .about-down {
-    background-color: rgb(236, 236, 236);
     text-align: center;
     padding-bottom: 4vw;
     padding-top: 2vw;
-    margin: 2vw; /* Margin shorthand for all sides */
-    border-radius: 1.5vw;
-    border: 1px solid black;
+    /* margin: 2vw;  */
+    /* border-radius: 1.5vw; */
+    /* border: 1px solid black; */
+    background-color: white;
 }
 
 .featurette-heading {
