@@ -65,7 +65,7 @@ function FormLogin(props) {
                 <Form.Group className="mb-3 w-50 w-sm-100" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Your comment...</Form.Label>
                     <Form.Control as="textarea" rows={3} name="comment" value={comment} onChange={handleCommentInput} />
-                    <Button type="submit" variant="outline-info">Publish</Button>
+                    <Button type="submit"className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
                 </Form.Group>
             </Form>
         </IsPrivate>
