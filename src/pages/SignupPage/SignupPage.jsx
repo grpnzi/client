@@ -62,7 +62,7 @@ function SignupPage() {
       <form onSubmit={handleSignupSubmit} className="text-center mt-5 SignupPage">
         <div className="form-row">
           <div className="col-md-5 mx-auto mb-3">
-            <label htmlFor="inlineFormInputGroup">Email</label>
+            <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }}  htmlFor="inlineFormInputGroup">Email</label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -81,7 +81,7 @@ function SignupPage() {
 
 
           <div className="col-md-5 mx-auto mb-3">
-            <label htmlFor="inlineFormInputGroup">Name</label>
+            <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Name</label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -99,7 +99,7 @@ function SignupPage() {
           </div>
 
           <div className="col-md-5 mx-auto mb-3">
-            <label htmlFor="inputPassword6">Password</label>
+            <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inputPassword6">Password</label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -120,13 +120,13 @@ function SignupPage() {
 
               />
             </div>
-            <small id="passwordHelpInline" className="text-muted">
+            <small style={{ fontSize: '12px' }} id="passwordHelpInline" className="text-muted">
               Must be 8-20 characters long.
             </small>
           </div>
 
           <div className="col-md-5 mx-auto mb-3">
-          <label htmlFor="inlineFormInputGroup">Profile Image</label>
+          <label className="mb-2 mt-2" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Profile Image</label>
           <div className="input-group">
             <div className="input-group-prepend">
               <span className="input-group-text">
@@ -156,12 +156,13 @@ function SignupPage() {
           <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
           </div>
           <div className="col-md-6 mx-auto mb-3">
-            <button type="submit" className="btn1 btn-dark">Sign in</button>
+
+          <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Sign up</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div>
-            <p>Already have account?</p>
-            <Link to={"/login"}> Login</Link>
+            <p className="mt-3" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }}>Already have account?</p>
+            <Link to="/login  " className="text-center btn btn-md btn-dark rounded border border-warning" style={{ width: '105px', maxHeight: '37px', fontFamily: 'Share', fontSize: '12px' }}>Login</Link>
           </div>
 
         </div>
