@@ -7,13 +7,13 @@ function UserProfile() {
   const { user } = useContext(AuthContext);
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [mail, setMail] = useState("");
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
 
   const handleNameInput = e => setName(e.target.value);
-  const handleEmailInput = e => setEmail(e.target.value);
+  const handleMailInput = e => setMail(e.target.value);
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -40,7 +40,7 @@ function UserProfile() {
     e.preventDefault();
     // Create an object representing the request body
     const urlApi = `${process.env.REACT_APP_SERVER_URL}/profile/edit/${user._id}`
-    const requestBody = { email, name, image };
+    const requestBody = { mail, name, image };
 
     fetch(urlApi, {
       method: 'POST',
@@ -58,7 +58,7 @@ function UserProfile() {
       {edit ?
         <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
           <div className="card p-4">
-            <form onSubmit={handleEditSubmit} className="text-center mt-5">
+            <form onSubmit={(e) => handleEditSubmit(e)} className="text-center mt-5">
               <div className="image d-flex flex-column justify-content-center align-items-center">
                 {image ?
                   <div className="mt-2">
@@ -71,14 +71,14 @@ function UserProfile() {
                     <img src={user.img} alt={user.name} height="95" width="95" />
                   </div>
                 }
-                <div className="col-md-5 mx-auto mb-3">
-                  <label htmlFor="inlineFormInputGroup">Profile Image</label>
+                <div className="col-lg-12 mx-auto mb-3 mt-5">
+                  <label className='smaller-label' htmlFor="image">Profile Image</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-file-image" viewBox="0 0 16 16">
-                          <path d="M8.293 5.293a.5.5 0 0 1 .414-.121l2 1a.5.5 0 0 1 .293.455V11.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 2 11.5V4a1.5 1.5 0 0 1 1.5-1.5h4.793a.5.5 0 0 1 .414.121zM10.5 0A1.5 1.5 0 0 1 12 1.5v6a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-6A1.5 1.5 0 0 1 5 0h5.5z" />
-                          <path d="M9.293 5.293a.5.5 0 0 1 .707 0L11.5 6.793l1.646-1.647a.5.5 0 0 1 .708.708L12.207 7.5l1.647 1.646a.5.5 0 1 1-.708.708L11.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 7.5 9.146 5.854a.5.5 0 0 1 0-.708z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" className="bi bi-file-earmark-arrow-up" viewBox="0 0 16 16">
+                          <path d="M8.5 11.5a.5.5 0 0 1-1 0V7.707L6.354 8.854a.5.5 0 1 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 7.707V11.5z" />
+                          <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z" />
                         </svg>
                       </span>
                     </div>
@@ -93,8 +93,8 @@ function UserProfile() {
 
                 </div>
                 <div className="form-row">
-                  <div className="col-md-5 mx-auto mb-3">
-                    <label htmlFor="inlineFormInputGroup">Email</label>
+                  <div className="col-lg-12 mx-auto mb-3">
+                    <label htmlFor="mail">Email</label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text">
@@ -107,15 +107,15 @@ function UserProfile() {
                         className="form-control"
                         id="inlineFormInputGroup"
                         placeholder="Email"
-                        name="email"
-                        value={email}
-                        onChange={handleEmailInput}
+                        name="mail"
+                        value={mail}
+                        onChange={handleMailInput}
                       />
                     </div>
                   </div>
                 </div>
-                <div className="col-md-5 mx-auto mb-3">
-                  <label htmlFor="inlineFormInputGroup">Name</label>
+                <div className="col-lg-12 mx-auto mb-3">
+                  <label htmlFor="name">Name</label>
                   <div className="input-group">
                     <div className="input-group-prepend">
                       <span className="input-group-text">
@@ -127,8 +127,8 @@ function UserProfile() {
                     <input
                       className="form-control"
                       placeholder="Name"
-                      type="text" name="name" 
-                      value={name} 
+                      type="text" name="name"
+                      value={name}
                       onChange={handleNameInput}
                     />
                   </div>
@@ -155,12 +155,12 @@ function UserProfile() {
                 <img src={user.img} alt={user.name} height="95" width="95" />
               </div>
               {<span className="name mt-3">{user.name} </span>}
-              <span className="idd">{user.email} </span>
+              <span className="idd">{user.mail} </span>
               <div className="d-flex flex-row justify-content-center align-items-center mt-3">
                 <span className="number">12 <span className="follow">Comments</span></span>
               </div>
               <div className="d-flex mt-2">
-                <button className="btn1 btn-dark" onClick={() => { setEdit(true); setEmail(user.email); setName(user.name) }}>Edit Profile</button>
+                <button className="btn1 btn-dark" onClick={() => { setEdit(true); setMail(user.email); setName(user.name) }}>Edit Profile</button>
               </div>
               <div className="text mt-3">
 
