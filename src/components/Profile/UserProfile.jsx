@@ -41,7 +41,7 @@ function UserProfile() {
     e.preventDefault();
     // Create an object representing the request body
     const urlApi = `${process.env.REACT_APP_SERVER_URL}/profile/edit/${user._id}`
-    const requestBody = { email: email, name: name, img: image };
+    const requestBody = { email: email, name: name, img: image, user };
     console.log(requestBody);
 
     fetch(urlApi, {
