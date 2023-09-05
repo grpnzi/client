@@ -29,6 +29,10 @@
     margin-top: 8vw; 
     margin-bottom: 8vw; 
   }
+
+  img{
+    border-radius: 3vw;
+  }
   
   /* Responsive styles for smaller screens */
   @media (min-width: 968px) {
@@ -53,4 +57,5 @@ button{
     padding: 2px, 2px, 2px, 2px;
 
 }
+
 
