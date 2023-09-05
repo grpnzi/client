@@ -15,8 +15,12 @@ import {
 import Button from "react-bootstrap/esm/Button";
 
 function Cart() {
-  const { cart } = useContext(CartContext)
+  const { cart, resetCart, deleteOne} = useContext(CartContext)
   const sum = cart.reduce((partialSum, currentItem) => partialSum + currentItem.price, 0);
+
+  const deleteCard = () => {
+    resetCart()
+  }
 
   return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
@@ -35,16 +39,10 @@ function Cart() {
 
                     <hr />
 
-                    <div className="d-flex justify-content-between align-items-center mb-4">
+                    <div className="d-flex justify-content-center align-items-center mb-4">
                       <div>
                         <p className="mb-1">Shopping cart</p>
                         <p className="mb-0">You have {cart?.length} items in your cart</p>
-                      </div>
-                      <div>
-                        <p>
-                          <span className="text-muted">Sort by:</span>
-                          <MDBIcon fas icon="angle-down mt-1" />
-                        </p>
                       </div>
                     </div>
 
@@ -77,7 +75,7 @@ function Cart() {
                                     ${experience.price}
                                   </MDBTypography>
                                 </div>
-                                <a href="#!" style={{ color: "#cecece" }}>
+                                <a onClick={() => deleteOne(experience)} style={{ color: "#cecece" }}>
                                   <MDBIcon fas icon="trash-alt" />
                                 </a>
                               </div>
@@ -150,7 +148,7 @@ function Cart() {
                         </div>
 
                         <div className="d-flex justify-content-center align-items-center mt-4 h-100">
-                          <Button variant="dark" className="h-100">Purchase</Button>
+                          <Button onClick={() => deleteCard()} variant="dark" className="h-100">Purchase</Button>
                         </div>
                       </MDBCardBody>
                     </MDBCard>
