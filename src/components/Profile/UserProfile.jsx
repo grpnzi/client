@@ -4,16 +4,17 @@ import { CloudinaryContext, Image } from 'cloudinary-react';
 
 
 function UserProfile() {
-  const { user } = useContext(AuthContext);
+  const { user, updateState} = useContext(AuthContext);
   const [edit, setEdit] = useState(false);
   const [name, setName] = useState("");
-  const [mail, setMail] = useState("");
+  const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const { storeToken } = useContext(AuthContext);
 
 
   const handleNameInput = e => setName(e.target.value);
-  const handleMailInput = e => setMail(e.target.value);
+  const handleEmailInput = e => setEmail(e.target.value);
 
   const handleImage = (e) => {
     const file = e.target.files[0];
@@ -40,15 +41,21 @@ function UserProfile() {
     e.preventDefault();
     // Create an object representing the request body
     const urlApi = `${process.env.REACT_APP_SERVER_URL}/profile/edit/${user._id}`
-    const requestBody = { mail, name, image };
+    const requestBody = { email: email, name: name, img: image };
+    console.log(requestBody);
 
     fetch(urlApi, {
       method: 'POST',
-      body: requestBody,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
     })
       .then((response) => response.json())
       .then((data) => {
-        setImage(data.secure_url); // Set the image URL returned by Cloudinary
+        storeToken(data.authToken)
+        updateState(data.payload)
+        setEdit(false)
       })
       .catch((error) => console.error('Error uploading image: ', error));
   }
@@ -108,8 +115,8 @@ function UserProfile() {
                         id="inlineFormInputGroup"
                         placeholder="Email"
                         name="mail"
-                        value={mail}
-                        onChange={handleMailInput}
+                        value={email}
+                        onChange={handleEmailInput}
                       />
                     </div>
                   </div>
@@ -127,7 +134,8 @@ function UserProfile() {
                     <input
                       className="form-control"
                       placeholder="Name"
-                      type="text" name="name"
+                      type="text" 
+                      name="name"
                       value={name}
                       onChange={handleNameInput}
                     />
@@ -135,12 +143,13 @@ function UserProfile() {
                 </div>
               </div>
               <div className="col-md-6 mx-auto mb-3">
-                <button onClick={() => { setEdit(false); }} type="submit" className="btn btn-primary">Edit</button>
+                {/* <button type="submit" onClick={() => { setEdit(false); }} className="btn btn-primary">Edit</button> */}
+                <button type="submit" className="btn btn-primary">Edit</button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </form>
             <div className="d-flex mt-2">
-              <button className="btn1 btn-dark" onClick={() => { setEdit(false); setImage(null) }}>Cancel</button>
+              <button className="btn1 btn-dark" onClick={() => { setEdit(false); setEmail(null)}}>Cancel</button>
             </div>
             <div className="text mt-3">
             </div>
@@ -160,7 +169,7 @@ function UserProfile() {
                 <span className="number">12 <span className="follow">Comments</span></span>
               </div>
               <div className="d-flex mt-2">
-                <button className="btn1 btn-dark" onClick={() => { setEdit(true); setMail(user.email); setName(user.name) }}>Edit Profile</button>
+                <button className="btn1 btn-dark" onClick={() => { setEdit(true); setEmail(user.email); setName(user.name); setImage(user.img)}}>Edit Profile</button>
               </div>
               <div className="text mt-3">
 
@@ -172,7 +181,7 @@ function UserProfile() {
   }
 
   else {
-    return (<h2>loading...</h2>)
+    return (<h2>Loading...</h2>)
   }
 
 
