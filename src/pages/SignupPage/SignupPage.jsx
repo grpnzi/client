@@ -156,6 +156,7 @@ function SignupPage() {
           <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
           </div>
           <div className="col-md-6 mx-auto mb-3">
+
           <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Sign up</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
