@@ -1,5 +1,6 @@
 import "./AboutDown.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { MDBAccordion, MDBAccordionItem, MDBIcon } from 'mdb-react-ui-kit';
 
 
 
@@ -97,7 +98,7 @@ function AboutDown() {
 
 
     </div>
-
+    
   );
 }
 
