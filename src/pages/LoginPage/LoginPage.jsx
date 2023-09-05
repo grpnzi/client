@@ -135,6 +135,7 @@ function LoginPage() {
       </div>
     </div>
     <div className="col-md-6 mx-auto mb-3">
+
       <button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Login</button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <p className="mt-3" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }}>Don't have an account yet?</p>

@@ -58,7 +58,21 @@ function ExperienceDetail() {
                         <div className="row d-flex">
                             <div className="col-md-6">
                                 <div className="d-flex align-items-center h-100 w-100 justify-content-center"> 
-                                    <img src={experience.imageUrl} alt={experience.title} className="img-fluid" />
+                                    <img src={experience.imageUrl} 
+                                    alt={experience.title} 
+                                    className="img-fluid" 
+                                    style={{ width: '1200px', height: '630px' }}
+                                    />
+
+
+
+
+
+
+
+
+
+
                                 </div>
                             </div>
                             <div className="col-md-6">

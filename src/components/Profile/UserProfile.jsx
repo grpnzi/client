@@ -144,7 +144,7 @@ function UserProfile() {
               </div>
               <div className="col-md-6 mx-auto mb-3">
                 {/* <button type="submit" onClick={() => { setEdit(false); }} className="btn btn-primary">Edit</button> */}
-                <button type="submit" className="btn btn-primary">Edit</button>
+                <button type="submit" className="btn1 btn-blue editBtn">Edit</button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </form>
