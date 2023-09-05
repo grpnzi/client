@@ -115,66 +115,6 @@ function ReviewCard(props) {
     return (
 
         <>
-            {/* <MDBCol md="8" lg="9" xl="7">
-                <div className="d-flex flex-start mb-3">
-                    <img
-                        className="rounded-circle shadow-1-strong me-1"
-                        src={review.author.img}
-                        alt="avatar"
-                        width="80"
-                        height="80"
-                    />
-
-                    <MDBCard className="w-100">
-                        <MDBCardBody className="p-4">
-                            <div>
-                                {review.author && (
-                                    <>
-                                        <MDBTypography tag="h3">{review.author.name}</MDBTypography>
-                                        <p className="small">Published {getTimeElapsed(new Date(review.createdAt))}</p>
-
-                                    </>
-                                )}
-                                {isEditing ?
-                                    <Form onSubmit={(event) => editComment(event, review)}>
-                                        <Form.Group className="mb-1" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
-                                            <Button type="submit" className="text-center btn btn-sm btn-dark   " style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
-                                        </Form.Group>
-                                    </Form>
-                                    :
-                                    <p>{review.comment}</p>
-                                }
-
-                                <div>
-                                    {user?._id ? <Button variant="outline-dark" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</Button>
-                                        :
-                                        <Link to="/login"><button className="like">❤️{review.likes.length}</button></Link>
-                                    }
-                                </div>
-                            </div>
-                            <div className='buttonsContainer'>
-                                {review.author._id === user?._id && (
-                                    <div className='edit'>
-                                        {isEditing ? (
-                                            <Button variant="outline-primary" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(false); }}>Cancel</Button>
-                                        ) : (
-                                            <Button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
-                                        )}
-                                    </div>
-                                )}
-
-                                {(review.author._id === user?._id && isEditing) && (
-                                    <div className='delete'>
-                                        <Button variant="outline-danger" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
-                                    </div>
-                                )}
-                            </div>
-                        </MDBCardBody>
-                    </MDBCard>
-
-                </div>
-            </MDBCol> */}
             <div className="container mt-5">
                 <div className="d-flex justify-content-center row">
                     <div className="col-md-8">
