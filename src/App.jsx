@@ -14,7 +14,8 @@ import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import AddToCart from "./pages/Cart/AddToCart";
 import UserProfile from "./components/Profile/UserProfile";
-
+import AddExperience from  "./pages/CreateExperience";
+import EditExperience from "./pages/EditExperience";
 function App() {
   return (
     <div className="App">
@@ -56,18 +57,10 @@ function App() {
           path="/country/:location/experiences"
           element={<Experiences />}
         />
-        <Route
-          path="/cart"
-          element={
-            <AddToCart />
-          }
-        />
-         <Route
-          path="/profile/:profileId"
-          element={
-          <UserProfile />
-        }
-        />
+        <Route path="/cart" element={<AddToCart />} />
+        <Route path="/profile/:profileId" element={<UserProfile />} />
+        <Route path="/create" element={<AddExperience />} />
+        <Route path="/country/:location/:experienceId/edit" element={<EditExperience/>}/>
 
       </Routes>
       <Footer />

@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from "../../components/Review/Review";
 import ReviewCard from "../../components/Review/ReviewCard";
 import { CartContext } from "../../context/cart.context";
 import './ExperienceDetail.css'
+import DeleteExperience from "../../components/DeleteExperience/DeleteExperience";
 
 import {
     MDBContainer,
@@ -84,6 +85,8 @@ function ExperienceDetail() {
                                 </MDBRow>
                             </MDBContainer>
                         </section>
+                        <Link to={`/country/${location}/${experienceId}/edit`}>EDIT</Link>
+                        <DeleteExperience></DeleteExperience>
                     </div>
                 </>
             }
