@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Review from "../../components/Review/Review";
 import ReviewCard from "../../components/Review/ReviewCard";
 import { CartContext } from "../../context/cart.context";
+import './ExperienceDetail.css'
 
 import {
     MDBContainer,
@@ -65,7 +66,7 @@ function ExperienceDetail() {
                                 <p className="lead">{experience.description}</p>
                                 <p className="mt-4">
                                     Price: ${experience.price}
-                                    <button className="btn btn-primary ml-2" onClick={()=>{cartUpdate(experience)}}>Book Now</button>
+                                    <button className="button-add" onClick={()=>{cartUpdate(experience)}}>Purchase</button>
                                 </p>
                             </div>
                         </div>

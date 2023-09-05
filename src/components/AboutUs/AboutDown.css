@@ -46,4 +46,14 @@
       margin-bottom: 3vw; 
     }
   }
-  
+
+    padding-bottom: 10px;
+}
+
+button{
+    color:#FFFEF0 ;
+    background-color: #383d46 ;
+    padding: 2px, 2px, 2px, 2px;
+
+}
+

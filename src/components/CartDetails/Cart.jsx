@@ -1,8 +1,7 @@
-
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cart.context";
 import { useContext, useState } from "react";
 import {
-  MDBBtn,
   MDBCard,
   MDBCardBody,
   MDBCardImage,
@@ -13,27 +12,25 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
-import React from "react";
+import Button from "react-bootstrap/esm/Button";
 
 function Cart() {
   const { cart } = useContext(CartContext)
-console.log(cart)
-
+  const sum = cart.reduce((partialSum, currentItem) => partialSum + currentItem.price, 0);
 
   return (
     <section className="h-100 h-custom" style={{ backgroundColor: "#eee" }}>
-      <MDBContainer className="py-5 h-100">
+      <MDBContainer className="py-5 h-100 w-100" >
         <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol>
-            <MDBCard>
+          <MDBCol lg="12" md="9">
+            <MDBCard className="w-100">
               <MDBCardBody className="p-4">
                 <MDBRow>
-                  <MDBCol lg="7">
+                  <MDBCol lg="6">
                     <MDBTypography tag="h5">
-                      <a href="#!" className="text-body">
-                        <MDBIcon fas icon="long-arrow-alt-left me-2" /> Continue
-                        shopping
-                      </a>
+                      <Link to="/">
+                        <MDBIcon fas icon="long-arrow-alt-left me-2" /> Continue shopping
+                      </Link>
                     </MDBTypography>
 
                     <hr />
@@ -46,60 +43,56 @@ console.log(cart)
                       <div>
                         <p>
                           <span className="text-muted">Sort by:</span>
-                          <a href="#!" className="text-body">
-                            price
-                            <MDBIcon fas icon="angle-down mt-1" />
-                          </a>
+                          <MDBIcon fas icon="angle-down mt-1" />
                         </p>
                       </div>
                     </div>
 
-                    {cart?.map((experience) => {
-                      <MDBCard className="mb-3">
-                        <MDBCardBody>
-                          <div className="d-flex justify-content-between">
-                            <div className="d-flex flex-row align-items-center">
-                              <div>
-                                <MDBCardImage
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                  fluid className="rounded-3" style={{ width: "65px" }}
-                                  alt="Shopping item" />
+                    {cart && cart.map((experience) => {
+                      return (
+                        <MDBCard className="mb-3 w-100" key={experience._id}>
+                          <MDBCardBody className="w-100">
+                            <div className="d-flex justify-content-between">
+                              <div className="d-flex flex-row align-items-center">
+                                <div>
+                                  <MDBCardImage
+                                    src={experience.imageUrl}
+                                    fluid className="rounded-3" style={{ width: "150px" }}
+                                    alt={experience.title} />
+                                </div>
+                                <div className="ms-3">
+                                  <MDBTypography tag="h5">
+                                    {experience.title}
+                                  </MDBTypography>
+                                </div>
                               </div>
-                              <div className="ms-3">
-                                <MDBTypography tag="h5">
-                                  {experience.title}
-                                </MDBTypography>
-                                <p className="small mb-0">256GB, Navy Blue</p>
-                                <p className="small mb-0">Product ID</p>
-
+                              <div className="d-flex flex-row align-items-center">
+                                <div style={{ width: "50px" }}>
+                                  <MDBTypography tag="h5" className="fw-normal mb-0">
+                                    1
+                                  </MDBTypography>
+                                </div>
+                                <div style={{ width: "80px" }}>
+                                  <MDBTypography tag="h5" className="mb-0">
+                                    ${experience.price}
+                                  </MDBTypography>
+                                </div>
+                                <a href="#!" style={{ color: "#cecece" }}>
+                                  <MDBIcon fas icon="trash-alt" />
+                                </a>
                               </div>
                             </div>
-                            <div className="d-flex flex-row align-items-center">
-                              <div style={{ width: "50px" }}>
-                                <MDBTypography tag="h5" className="fw-normal mb-0">
-                                  1
-                                </MDBTypography>
-                              </div>
-                              <div style={{ width: "80px" }}>
-                                <MDBTypography tag="h5" className="mb-0">
-                                  ${experience.price}
-                                </MDBTypography>
-                              </div>
-                              <a href="#!" style={{ color: "#cecece" }}>
-                                <MDBIcon fas icon="trash-alt" />
-                              </a>
-                            </div>
-                          </div>
-                        </MDBCardBody>
-                      </MDBCard>
+                          </MDBCardBody>
+                        </MDBCard>
+                      )
                     })}
 
 
                   </MDBCol>
 
-                  <MDBCol lg="5">
-                    <MDBCard className="bg-primary text-white rounded-3">
-                      <MDBCardBody>
+                  <MDBCol lg="6">
+                    <MDBCard className="bg-primary text-white rounded-3 w-100">
+                      <MDBCardBody className="w-100">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                           <MDBTypography tag="h5" className="mb-0">
                             Card details
@@ -133,7 +126,7 @@ console.log(cart)
                                 minLength="7" maxLength="7" placeholder="MM/YYYY" contrast />
                             </MDBCol>
                             <MDBCol md="6">
-                              <MDBInput className="mb-4" label="Cvv" type="text" size="lg" minLength="3"
+                              <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3"
                                 maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />
                             </MDBCol>
                           </MDBRow>
@@ -141,30 +134,24 @@ console.log(cart)
 
                         <hr />
 
-                        <div className="d-flex justify-content-between">
-                          <p className="mb-2">Subtotal</p>
-                          <p className="mb-2">$4798.00</p>
-                        </div>
-
-                        <div className="d-flex justify-content-between">
-                          <p className="mb-2">Shipping</p>
-                          <p className="mb-2">$20.00</p>
-                        </div>
+                        {cart && cart.map((experience) => {
+                          return (
+                            <div className="d-flex justify-content-between" key={experience._id}>
+                              <p className="mb-2">{experience.title}</p>
+                              <p className="mb-2">${experience.price}</p>
+                            </div>
+                          )
+                        })
+                        }
 
                         <div className="d-flex justify-content-between">
                           <p className="mb-2">Total(Incl. taxes)</p>
-                          <p className="mb-2">$4818.00</p>
+                          <p className="mb-2">${sum}</p>
                         </div>
 
-                        <MDBBtn color="info" block size="lg">
-                          <div className="d-flex justify-content-between">
-                            <span>$4818.00</span>
-                            <span>
-                              Checkout{" "}
-                              <i className="fas fa-long-arrow-alt-right ms-2"></i>
-                            </span>
-                          </div>
-                        </MDBBtn>
+                        <div className="d-flex justify-content-center align-items-center mt-4 h-100">
+                          <Button variant="dark" className="h-100">Purchase</Button>
+                        </div>
                       </MDBCardBody>
                     </MDBCard>
                   </MDBCol>
