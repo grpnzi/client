@@ -78,9 +78,9 @@ function ExperienceDetail() {
                             <div className="col-md-6">
                                 <h1 className="mt-4">{experience.title}</h1>
                                 <p className="lead">{experience.description}</p>
-                                <p className="mt-4">
+                                <p className="mt-4" style={{fontFamily: 'Share', fontSize: '19px'}}>
                                     Price: ${experience.price}
-                                    <button className="button-add" onClick={()=>{cartUpdate(experience)}}>Purchase</button>
+                                    <button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={()=>{cartUpdate(experience)}}>Purchase</button>
                                 </p>
                             </div>
                         </div>
