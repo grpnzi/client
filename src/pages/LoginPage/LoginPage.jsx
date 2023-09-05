@@ -79,7 +79,7 @@ function LoginPage() {
 <form onSubmit={handleLoginSubmit} className="text-center mt-5">
   <div className="form-row">
     <div className="col-md-5 mx-auto mb-3">
-      <label htmlFor="inlineFormInputGroup">Email</label>
+      <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Email</label>
       <div className="input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
@@ -99,7 +99,7 @@ function LoginPage() {
       </div>
     </div>
     <div className="col-md-5 mx-auto mb-3">
-      <label htmlFor="inputPassword6">Password</label>
+      <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inputPassword6">Password</label>
       <div className="input-group">
         <div className="input-group-prepend">
           <span className="input-group-text">
@@ -129,16 +129,17 @@ function LoginPage() {
           type="checkbox"
           id="autoSizingCheck"
         />
-        <label className="form-check-label" htmlFor="autoSizingCheck">
+        <label style={{ fontFamily: 'Share', fontSize: '18px' }} className="form-check-label" htmlFor="autoSizingCheck">
           Remember me
         </label>
       </div>
     </div>
     <div className="col-md-6 mx-auto mb-3">
-      <button type="submit" className="btn btn-primary mb-4">Login</button>
+      <button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Login</button>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <p>Don't have an account yet?</p>
-      <Link to="/signup">Sign Up</Link>
+      <p className="mt-3" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }}>Don't have an account yet?</p>
+      <Link to="/signup" className="text-center btn btn-md btn-dark rounded border border-warning" style={{ width: '110px', maxHeight: '37px', fontFamily: 'Share', fontSize: '12px' }}>Sign Up</Link>
+
     </div>
   </div>
 </form>
