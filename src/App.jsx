@@ -8,8 +8,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
 import Footer from "./components/Footer";
 import Experiences from "./pages/Experiences/Experiences";
+import AllExperiences from "./pages/AllExperiences";
+
 
 import Navbar from "./components/Navbar/Navbar";
+import SearchBar from "./components/SearchBar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
 import AddToCart from "./pages/Cart/AddToCart";
@@ -61,6 +64,9 @@ function App() {
         <Route path="/profile/:profileId" element={<UserProfile />} />
         <Route path="/create" element={<AddExperience />} />
         <Route path="/country/:location/:experienceId/edit" element={<EditExperience/>}/>
+        <Route path="/search" element={<AllExperiences/>}></Route>
+        <Route path="/search" element={<SearchBar/>}></Route>
+
 
       </Routes>
       <Footer />
