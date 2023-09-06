@@ -7,6 +7,7 @@ import { CartContext } from "../../context/cart.context";
 import './ExperienceDetail.css'
 import DeleteExperience from "../../components/DeleteExperience/DeleteExperience";
 import { AuthContext } from "../../context/auth.context";
+import Rating from "../../components/Ratings";
 
 import {
     MDBContainer,

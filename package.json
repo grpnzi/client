@@ -16,6 +16,7 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.15.0",
     "react-scripts": "^5.0.1",
+    "react-star-ratings": "^2.3.0",
     "typeface-montserrat": "^1.1.13",
     "typeface-russo-one": "^1.1.13"
   },
