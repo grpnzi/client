@@ -112,17 +112,18 @@ function Cart() {
                         </a>
 
                         <form className="mt-4">
-                          <MDBInput className="mb-4" label="Cardholder's Name" type="text" size="lg"
+                          <MDBInput className="mb-4" label="Card Number" type="text" size="lg"
                             placeholder="Cardholder's Name" contrast />
 
-                          <MDBInput className="mb-4" label="Card Number" type="text" size="lg"
+                          <MDBInput className="mb-4" label="Expiration" type="text" size="lg"
                             minLength="19" maxLength="19" placeholder="1234 5678 9012 3457" contrast />
 
                           <MDBRow className="mb-4">
                             <MDBCol md="6">
-                              <MDBInput className="mb-4" label="Expiration" type="text" size="lg"
+                              <MDBInput className="mb-4" type="text" size="lg"
                                 minLength="7" maxLength="7" placeholder="MM/YYYY" contrast />
                             </MDBCol>
+                            
                             <MDBCol md="6">
                               <MDBInput className="mb-4" label="CVV" type="text" size="lg" minLength="3"
                                 maxLength="3" placeholder="&#9679;&#9679;&#9679;" contrast />

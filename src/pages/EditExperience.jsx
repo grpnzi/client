@@ -148,13 +148,29 @@ function EditExperience() {
                 name="imageUrl"
               />
 
-              <CloudinaryContext
+<CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
+  <div className="mx-auto mt-4 text-center">
+    <Image
+      className="img-fluid"
+      style={{ maxWidth: '100%', maxHeight: '500px' }}
+      publicId={imageUrl}
+    />
+  </div>
+</CloudinaryContext>
+<Button
+  type="submit"
+  className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-4 mb-4 p-2"
+  style={{ width: '100%', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}
+>
+  Edit
+</Button>
+              {/* <CloudinaryContext
                 cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
               >
                 <Image className="ml-auto mt-4" style={{
                   width: '600px', maxHeight: '500px', display: 'block', margin: '0 auto' }} publicId={imageUrl} />
               </CloudinaryContext>
-              <Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning  my-4 mt-5 mb-5 p-2" style={{ width: '723px', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}>Edit</Button>
+              <Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning  my-4 mt-5 mb-5 p-2" style={{ width: '723px', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}>Edit</Button> */}
             </Form>
           </div>
         </div>
