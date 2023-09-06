@@ -61,14 +61,14 @@ function ExperienceDetail() {
                 :
                 <>
                     <div className="container-fluid mt-5 -5">
-                        <div className="row d-flex experienceContainer rounded p-4 mx-4 customCss">
+                        <div className="row d-flex experienceContainer rounded p-4 mx-4 customCss background">
                             <div className="col-md-6">
-                                <div className="d-flex align-items-center h-100 w-100 justify-content-center">
+                                <div className="d-flex align-items-center justify-content-center">
                                     <img
                                         src={experience.imageUrl}
                                         alt={experience.title}
                                         className="img-fluid imgDescription rounded"
-                                        style={{ width: '1080px', height: '495px' }}
+                                        style={{ maxWidth: '100%', height: 'auto' }}
                                     />
                                 </div>
                             </div>
@@ -89,6 +89,7 @@ function ExperienceDetail() {
                             </div>
                         </div>
                     </div>
+
 
 
                     <Staff />

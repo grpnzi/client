@@ -2,5 +2,9 @@
     border-style: outset
   }
 
+  .background {
+    background-color: white;
+    box-shadow: 7px 5px 25px 0px rgba(70, 68, 39, 0.3);
 
+  }
   
