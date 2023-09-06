@@ -17,13 +17,11 @@ function AboutDown() {
 
   return (
     <>
-      <section className="bg-black p-5">
-        <section className="bg-black p-3"> </section>
+      <section className="bg-black p-3">
+        <section className="bg-black p-2"> </section>
         <section className="page-section" id="services">
       <Container fluid>
-        <h2 style={{ fontFamily: 'Russo One', fontSize: '25px', color: 'white'}} className="text-center mt-0">At Your Service</h2>
-        <hr style={{ fontFamily: 'Russo One', color: 'white'}} className=" hr-blurry" />
-        <h2 style={{ fontFamily: 'Russo One', fontSize: '28px', color: 'white'}} className="text-center mt-3">About us</h2>
+        <h2 style={{ fontFamily: 'Russo One', fontSize: '34px', color: 'white'}} className="text-center mt-3">A</h2>
       </Container>
     </section>
       </section>
