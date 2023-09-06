@@ -1,7 +1,5 @@
 import { formatDistanceToNow } from 'date-fns';
 import { useContext, useState } from "react";
-import './ReviewCard.css'
-import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/esm/Form";
 import { AuthContext } from "../../context/auth.context";
 import { Link } from "react-router-dom";
@@ -115,54 +113,73 @@ function ReviewCard(props) {
     return (
 
         <>
-            <div className="container mt-5">
-                <div className="d-flex justify-content-center row">
-                    <div className="col-md-8">
-                        <div className="d-flex flex-column comment-section">
-                            <div className="bg-white p-2">
-                                <div className="d-flex flex-row user-info"><img className="rounded-circle" src={review.author.img} width="40" />
-                                    <div className="d-flex flex-column justify-content-start ml-2"><span className="d-block font-weight-bold name">{review.author.name}</span><span className="date text-black-50">Shared {getTimeElapsed(new Date(review.createdAt))}</span></div>
-                                </div>
-                                <div className="mt-2">
-                                    {isEditing ?
-                                        <Form onSubmit={(event) => editComment(event, review)}>
-                                            <Form.Group className="mb-1" controlId="exampleForm.ControlTextarea1">
-                                                <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
-                                                <Button type="submit" className="text-center btn btn-sm btn-dark" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
-                                            </Form.Group>
-                                        </Form>
-                                        :
-                                        <p>{review.comment}</p>
-                                    }
-                                </div>
-                            </div>
-                            <div className="bg-white">
-                                <div className="d-flex flex-row fs-12">
-                                    {user?._id ? <Button variant="outline-dark" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</Button>
-                                        :
-                                        <Link to="/login"><button className="like">❤️{review.likes.length}</button></Link>
-                                    }
-                                    {review.author._id === user?._id && (
-                                        <div className="like p-2 cursor">
-                                            {isEditing ? (
-                                                <Button variant="outline-primary" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(false); }}>Cancel</Button>
-                                            ) : (
-                                                <Button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
-                                            )}
-                                        </div>
-                                    )}
-                                    {(review.author._id === user?._id && isEditing) && (
-                                        <div className='delete'>
-                                            <Button variant="outline-danger" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
+            <MDBCol md="11" lg="9" xl="7">
+                <div className="d-flex flex-start mb-4">
+                    <img
+                        className="rounded-circle shadow-1-strong me-3"
+                        src={review.author.img}
+                        alt="avatar"
+                        width="65"
+                        height="65"
+                    />
+                    <MDBCard className="w-100 bg-white">
+                        <MDBCardBody className="p-4">
+                            <div>
+                                {review.author && (
+                                    <>
+                                        <MDBTypography tag="h5" style={{ color: 'black', width: '130px', maxHeight: '35px', fontFamily: 'Russo One', fontSize: '18px' }}>{review.author.name}</MDBTypography>
+                                        <p className="small">Published {getTimeElapsed(new Date(review.createdAt))}</p>
 
-                        </div>
-                    </div>
+                                    </>
+                                )}
+                                {isEditing ?
+                                    <Form onSubmit={(event) => editComment(event, review)}>
+                                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
+                                            <button className="text-center btn btn-sm btn-dark rounded border border-warning"
+                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} type="submit">Publish</button>
+                                        </Form.Group>
+                                    </Form>
+                                    :
+                                    <p>{review.comment}</p>
+                                }
+
+                                <div className="d-flex justify-content-between align-items-center">
+                                    {user?._id ? 
+                                        <button className='btn-outline-light' onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</button>
+                                        :
+                                        <Link to="/login"><button className='btn-outline-light'>❤️{review.likes.length}</button></Link>
+                                    }
+                                </div>
+                            </div>
+                            <div className='buttonsContainer'>
+                                {review.author._id === user?._id &&
+                                    <div className='edit'>
+                                        {isEditing ? (
+                                            <button className="text-center btn btn-sm btn-dark rounded border border-warning"
+                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}  
+                                            onClick={() => setIsEditing(false)}>Cancel</button>
+                                        ) : (
+                                            <button className="text-center btn btn-sm btn-dark rounded border border-warning"
+                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                            onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</button>
+                                        )}
+                                    </div>
+                                }
+                                {review.author._id === user?._id && isEditing &&
+                                    <div>
+                                        <button className="text-center btn btn-sm btn-danger rounded border border-warning"
+                                        style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                        onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</button>
+                                    </div>
+                                }
+                            </div>
+                        </MDBCardBody>
+                    </MDBCard>
+
                 </div>
-            </div>
+            </MDBCol>
+
         </>
     )
 }
