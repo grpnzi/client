@@ -8,7 +8,7 @@ import DeleteExperience from "../../components/DeleteExperience/DeleteExperience
 import { AuthContext } from "../../context/auth.context";
 import Rating from "../../components/Ratings";
 import './Experience.Details.css'
-import { Card } from "react-bootstrap";
+import Staff from "../../components/Staff/Staff";
 
 
 import {
@@ -90,73 +90,7 @@ function ExperienceDetail() {
                     </div>
 
 
-
-
-                    {/* src="https://media.gadventures.com/media-server/cache/3e/ce/3ecebc7f82ea0c88ec78f0f5a7fc8c56.jpg" */}
-
-
-
-                    {/* <div className="bg-image hover-overlay ">
-  <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/053.webp" className="w-100 imgCss" />
-  <div
-    className="mask"
-    style={{
-      background: "linear-gradient(45deg, hsla(168, 85%, 52%, 0.5), hsla(263, 88%, 45%, 0.5) 100%)"
-    }}
-  ></div>
-</div> */}
-
-
-<div className="row featurette mt-2 mx-0">
-    <div className="col-md-7">
-        <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading">Crew & Staff</h2>
-        <p style={{ fontFamily: 'Share', fontSize: '20px' }} className="lead">Experts in everything from geology to marine biology and polar history, the members of our team are always eager to share their infectious passion for travelling and enjoying new experiences. Add in professional hotel staff and a seasoned crew, and you’ll be more than comfortable during your adventure.</p>
-    </div>
-    <div className="col-md-5 mt-5 d-flex">
-        <Card className="bg-dark text-white" style={{ width: '250px', height: '250px', marginRight: '20px' }}>
-            <Card.Img
-                src="https://media.gadventures.com/media-server/cache/cd/49/cd49c4396874321f47c6de00cfd8dda5.jpg"
-                alt="Card image"
-                className="img-thumbnail"
-            />
-            <div
-                className="card-img-overlay d-flex flex-column justify-content-end align-items-start"
-                style={{
-                    background: `linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 100%)`,
-                    padding: '10px',
-                    height: '100%',
-                }}
-            >
-                <Card.Title style={{ color: 'white' }}>Susana</Card.Title>
-                <Card.Text style={{ color: 'white' }}>Operation manager</Card.Text>
-            </div>
-        </Card>
-        <Card className="bg-dark text-white" style={{ width: '250px', height: '250px' }}>
-            <Card.Img
-                src="https://media.gadventures.com/media-server/cache/cd/49/cd49c4396874321f47c6de00cfd8dda5.jpg"
-                alt="Card image"
-                className="img-thumbnail"
-            />
-            <div
-                className="card-img-overlay d-flex flex-column justify-content-end align-items-start"
-                style={{
-                    background: `linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 100%)`,
-                    padding: '10px',
-                    height: '100%',
-                }}
-            >
-                <Card.Title style={{ color: 'white' }}>Susana</Card.Title>
-                <Card.Text style={{ color: 'white' }}>Operation manager</Card.Text>
-            </div>
-        </Card>
-    </div>
-</div>
-
-
-
-
-
-
+                    <Staff />
 
                     <div className="container-fluid">
                         {<Review experienceId={experienceId} getReviews={getReviews} />}
