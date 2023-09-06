@@ -6,6 +6,7 @@ import ReviewCard from "../../components/Review/ReviewCard";
 import { CartContext } from "../../context/cart.context";
 import DeleteExperience from "../../components/DeleteExperience/DeleteExperience";
 import { AuthContext } from "../../context/auth.context";
+import Rating from "../../components/Ratings";
 import './Experience.Details.css'
 import { Card } from "react-bootstrap";
 
