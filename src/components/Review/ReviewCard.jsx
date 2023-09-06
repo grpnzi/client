@@ -113,67 +113,60 @@ function ReviewCard(props) {
     }
 
     return (
-        <MDBCol md="8" lg="9" xl="7">
-            <div className="d-flex flex-start mb-3">
-                <img
-                    className="rounded-circle shadow-1-strong me-1"
-                    src={review.author.img}
-                    alt="avatar"
-                    width="80"
-                    height="80"
-                />
 
-                <MDBCard className="w-100">
-                    <MDBCardBody className="p-4">
-                        <div>
-                            {review.author && (
-                                <>
-                                    <MDBTypography tag="h3">{review.author.name}</MDBTypography>
-                                    <p className="small">Published {getTimeElapsed(new Date(review.createdAt))}</p>
-
-                                </>
-                            )}
-                            {isEditing ?
-                                <Form onSubmit={(event) => editComment(event, review)}>
-                                    <Form.Group className="mb-1" controlId="exampleForm.ControlTextarea1">
-                                        <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
-                                        <Button type="submit" variant="outline-info">Publish</Button>
-                                    </Form.Group>
-                                </Form>
-                                :
-                                <p>{review.comment}</p>
-                            }
-
-                            <div>
-                                {user?._id ? <Button variant="outline-dark" onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</Button>
-                                    :
-                                    <Link to="/login"><button className="like">❤️{review.likes.length}</button></Link>
-                                }
+        <>
+            <div className="container mt-5">
+                <div className="d-flex justify-content-center row">
+                    <div className="col-md-8">
+                        <div className="d-flex flex-column comment-section">
+                            <div className="bg-white p-2">
+                                <div className="d-flex flex-row user-info"><img className="rounded-circle" src={review.author.img} width="40" />
+                                    <div className="d-flex flex-column justify-content-start ml-2"><span className="d-block font-weight-bold name">{review.author.name}</span><span className="date text-black-50">Shared {getTimeElapsed(new Date(review.createdAt))}</span></div>
+                                </div>
+                                <div className="mt-2">
+                                    {isEditing ?
+                                        <Form onSubmit={(event) => editComment(event, review)}>
+                                            <Form.Group className="mb-1" controlId="exampleForm.ControlTextarea1">
+                                                <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
+                                                <Button type="submit" className="text-center btn btn-sm btn-dark" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
+                                            </Form.Group>
+                                        </Form>
+                                        :
+                                        <p>{review.comment}</p>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                        <div className='buttonsContainer'>
-                            {review.author._id === user?._id && (
-                                <div className='edit'>
-                                    {isEditing ? (
-                                        <Button variant="outline-primary" onClick={() => { setIsEditing(false); }}>Cancel</Button>
-                                    ) : (
-                                        <Button variant="outline-primary" onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
+                            <div className="bg-white">
+                                <div className="d-flex flex-row fs-12">
+                                    {user?._id ? <Button variant="outline-dark" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</Button>
+                                        :
+                                        <Link to="/login"><button className="like">❤️{review.likes.length}</button></Link>
+                                    }
+                                    {review.author._id === user?._id && (
+                                        <div className="like p-2 cursor">
+                                            {isEditing ? (
+                                                <Button variant="outline-primary" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(false); }}>Cancel</Button>
+                                            ) : (
+                                                <Button className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</Button>
+                                            )}
+                                        </div>
+                                    )}
+                                    {(review.author._id === user?._id && isEditing) && (
+                                        <div className='delete'>
+                                            <Button variant="outline-danger" style={{ width: '130px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
+                                        </div>
                                     )}
                                 </div>
-                            )}
+                            </div>
 
-                            {(review.author._id === user?._id && isEditing) && (
-                                <div className='delete'>
-                                    <Button variant="outline-danger" onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</Button>
-                                </div>
-                            )}
                         </div>
-                    </MDBCardBody>
-                </MDBCard>
-
+                    </div>
+                </div>
             </div>
-        </MDBCol>
+        </>
     )
 }
 
 export default ReviewCard;
+
+

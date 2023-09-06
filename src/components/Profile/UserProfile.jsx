@@ -41,7 +41,7 @@ function UserProfile() {
     e.preventDefault();
     // Create an object representing the request body
     const urlApi = `${process.env.REACT_APP_SERVER_URL}/profile/edit/${user._id}`
-    const requestBody = { email: email, name: name, img: image };
+    const requestBody = { email: email, name: name, img: image, user };
     console.log(requestBody);
 
     fetch(urlApi, {
@@ -144,7 +144,7 @@ function UserProfile() {
               </div>
               <div className="col-md-6 mx-auto mb-3">
                 {/* <button type="submit" onClick={() => { setEdit(false); }} className="btn btn-primary">Edit</button> */}
-                <button type="submit" className="btn btn-primary">Edit</button>
+                <button type="submit" className="btn1 btn-blue editBtn">Edit</button>
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
               </div>
             </form>

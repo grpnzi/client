@@ -10,14 +10,15 @@ import {
   MDBCarousel,
   MDBCarouselItem,
   MDBBtn,
-  MDBContainer, 
-  MDBRow, 
+  MDBContainer,
+  MDBRow,
   MDBCol,
-   MDBIcon
+  MDBIcon
 } from 'mdb-react-ui-kit';
 
 function Experiences() {
   const { location } = useParams();
+  const [display, setDisplay] = useState(false)
   const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/${location}/experience`;
 
   const [experienceFiltered, setExperienceFiltered] = useState(null);
@@ -45,118 +46,93 @@ function Experiences() {
   return (
     <>
       <MDBContainer>
-      <MDBRow>
-        <MDBCol lg={4}>
-          <img
-            className="rounded-circle"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            alt="Generic placeholder image"
-            width="140"
-            height="140"
-          />
-          <h2 style={{ fontFamily: 'Russo One' }}>Xtreme</h2>
-          <p>
-            Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent
-          </p>
-          <button className="btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '130px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => filterExperience("Xtreme")}>View Details »</button>
-        </MDBCol>
-        <MDBCol lg={4}>
-          <img
-            className="rounded-circle"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            alt="Generic placeholder image"
-            width="140"
-            height="140"
-          />
-          <h2 style={{ fontFamily: 'Russo One' }}>Cultural</h2>
-          <p>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.
-          </p>
-          <button className="btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '130px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => filterExperience("Cultural")}>View Details »</button>
-        </MDBCol>
-        <MDBCol lg={4}>
-          <img
-            className="rounded-circle"
-            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-            alt="Generic placeholder image"
-            width="140"
-            height="140"
-          />
-          <h2 className="mt-2"style={{ fontFamily: 'Russo One' }}>Gastronomic</h2>
-          <p>
-            Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-          </p>
-          
-          <button className="btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '130px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => filterExperience("Gastronomic")}>View Details »</button>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-      <MDBCarousel showControls showIndicators>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={1}
-        src='https://cdn.hswstatic.com/gif/mt-everest-tourism-171676392.jpg'
-        alt='...'
-        style={{ width: '80%', maxHeight: '600px' }}
-      >
-        <div className="bg-dark text-white py-4 ">
-        <h5>Xtreme Adventures</h5>
-        <p>
-          Seek the adrenaline rush? Our Xtreme experiences are designed to thrill, from scaling towering peaks to diving into the depths of the ocean, pushing boundaries and igniting your sense of adventure.
-        </p>
-    </div>
-      </MDBCarouselItem>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={2}
-        src='https://yucatan.travel/wp-content/uploads/2020/07/Chichenitza-Yucatan.jpg'
-        alt='...'
-        style={{ width: '80%', maxHeight: '600px' }}
-      >
-        <div className="bg-dark text-white py-4">
-        <h5>Cultural Immersion</h5>
-        <p>
-          We believe the heart of any journey lies in its culture. Delve deep into traditions, history, and vibrant customs through our Cultural experiences. Engage with local communities, participate in ancient rituals, and gain insights that go beyond the surface.
-        </p>
-    </div>
-      </MDBCarouselItem>
-      <MDBCarouselItem
-        className='w-100 d-block'
-        itemId={3}
-        src='https://gastrotrips.es/wp-content/uploads/2019/12/viaje-a-tokio-y-kioto-min.jpg'
-        alt='...'
-        style={{ width: '70%', maxHeight: '600px' }}
-      >
-        <div className="bg-dark text-white py-4">
-        <h5>Gastronomic Delights</h5>
-        <p>
-          Food is a universal language, and our Gastronomic experiences celebrate the world's culinary treasures. Discover a country's soul through its flavors, savoring street food delicacies to fine dining in historic settings, all while uncovering the stories behind each dish.
-        </p>
-    </div>
-      </MDBCarouselItem>
-    </MDBCarousel>
-      
-      {!experienceFiltered ? <p>Choose your experience</p> :
+        <MDBRow>
+          <MDBCol lg={4}>
+            <img
+              className="rounded-circle mt-5"
+              src="https://images.unsplash.com/photo-1517627043994-b991abb62fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGl2aW5nfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60"
+              alt="Generic placeholder image"
+              width="140"
+              height="140"
+            />
+            <h2 className="mt-3" style={{ fontFamily: 'Russo One' }}>Xtreme</h2>
+            <button className="btn btn-sm btn-dark rounded border border-warning mt-2 mb-5" style={{ width: '200px', maxHeight: '50px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => {filterExperience("Xtreme"); setDisplay(true)}}>View Details »</button>
+          </MDBCol>
+          <MDBCol lg={4}>
+            <img
+              className="rounded-circle mt-5"
+              src="https://images.unsplash.com/photo-1530244534845-4a0c319f41e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+              alt="Generic placeholder image"
+              width="140"
+              height="140"
+            />
+            <h2 className="mt-3" style={{ fontFamily: 'Russo One' }}>Cultural</h2>
+            <button className="btn btn-sm btn-dark rounded border border-warning mt-2 mb-5" style={{ width: '200px', maxHeight: '50px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => {filterExperience("Cultural"); setDisplay(true)}}>View Details »</button>
+          </MDBCol>
+          <MDBCol lg={4}>
+            <img
+              className="rounded-circle mt-5"
+              src="https://images.unsplash.com/photo-1571989569149-250bd32f5eb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z2FzdHJvbm9teXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60"
+              alt="Generic placeholder image"
+              width="140"
+              height="140"
+            />
+            <h2 className="mt-3" style={{ fontFamily: 'Russo One' }}>Gastronomic</h2>
+
+
+            <button className="btn btn-sm btn-dark rounded border border-warning mt-2 mb-5" style={{ width: '200px', maxHeight: '50px', fontFamily: 'Share', fontSize: '15px' }} onClick={() => {filterExperience("Gastronomic"); setDisplay(true)}}>View Details »</button>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      {!display && 
+      <MDBCarousel showControls>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={1}
+          src='https://cdn.hswstatic.com/gif/mt-everest-tourism-171676392.jpg'
+          alt='...'
+          style={{ width: '80%', maxHeight: '600px' }}
+        >
+        </MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={2}
+          src='https://yucatan.travel/wp-content/uploads/2020/07/Chichenitza-Yucatan.jpg'
+          alt='...'
+          style={{ width: '80%', maxHeight: '600px' }}
+        >
+        </MDBCarouselItem>
+        <MDBCarouselItem
+          className='w-100 d-block'
+          itemId={3}
+          src='https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/20180808200056/Chinatown-SF-1.jpg'
+          alt='...'
+          style={{ width: '70%', maxHeight: '600px' }}
+        >
+        </MDBCarouselItem>
+      </MDBCarousel>}
+
+      {!experienceFiltered ? <p></p> :
         <>
           {!experienceFiltered ? (
             <p>Setting your experiences...</p>
           ) : (
             <>
-              <div className="d-flex flex-wrap justify-content-center justify-content-lg-start">
+              <div className="d-flex flex-wrap justify-content-center mt-5 mb-5">
                 {experienceFiltered.map((experience) => (
                   <div className="p-2" key={experience._id}>
-                    <Card style={{ width: "18rem" }} className="h-100">
+                    <Card style={{ width: "18rem", backgroundColor: 'white'}} className="h-100">
                       <Card.Img
                         variant="top"
                         src={experience.imageUrl}
                         className="card-img-fixed-height"
                       />
-                      <Card.Body className="text-center">
-                        <Card.Title>{experience.title}</Card.Title>
-                        <Card.Text>{experience.experienceType}</Card.Text>
-                        <Card.Text>${experience.price}</Card.Text>
-                        <Link to={`/country/${location}/${experience._id}`}>
-                          <button className="h-10" >Read more...</button>
+                      <Card.Body className="text-center d-flex flex-column align-items-center">
+                        <Card.Title style={{fontFamily: 'Share'}}>{experience.title}</Card.Title>
+                        <Card.Text style={{color: 'grey', fontFamily: 'Russo One'}}>{experience.experienceType}</Card.Text>
+                        <Card.Text style={{color: 'black', fontFamily: 'Russo One'}}>${experience.price}</Card.Text>
+                        <Link className="ml-auto" to={`/country/${location}/${experience._id}`}>
+                        <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning mt-2" style={{ width: '150px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }}>Read More</button>
                         </Link>
 
                       </Card.Body>
