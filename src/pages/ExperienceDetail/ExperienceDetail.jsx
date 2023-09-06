@@ -6,6 +6,7 @@ import ReviewCard from "../../components/Review/ReviewCard";
 import { CartContext } from "../../context/cart.context";
 import './ExperienceDetail.css'
 import DeleteExperience from "../../components/DeleteExperience/DeleteExperience";
+import { AuthContext } from "../../context/auth.context";
 
 import {
     MDBContainer,
@@ -13,6 +14,7 @@ import {
 } from "mdb-react-ui-kit";
 
 function ExperienceDetail() {
+    const {user} = useContext(AuthContext)
     const { cart, cartUpdate } = useContext(CartContext)
     const { experienceId, location } = useParams();
     const [experience, setExperience] = useState(null);
@@ -89,8 +91,8 @@ function ExperienceDetail() {
                                 </MDBRow>
                             </MDBContainer>
                         </section>
-                        <Link to={`/country/${location}/${experienceId}/edit`}>EDIT</Link>
-                        <DeleteExperience></DeleteExperience>
+                       { user?.admin &&<> <Link to={`/country/${location}/${experienceId}/edit`}>EDIT</Link></>}
+                        {user?.admin && <DeleteExperience location = {location}></DeleteExperience>}
                     </div>
                 </>
             }

@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./../context/auth.context";
+import { CloudinaryContext, Image } from "cloudinary-react";
+
 
 function EditExperience() {
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   const { experienceId, location } = useParams();
   const [title, setTitle] = useState("");
   const [experienceType, setExperienceType] = useState("");
@@ -22,7 +27,6 @@ function EditExperience() {
         const data = await response.json();
         const {
           title,
-          location,
           experienceType,
           description,
           duration,
@@ -53,7 +57,7 @@ function EditExperience() {
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
-    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/experiences/edit/${experienceId}`;
+    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/experience/edit/${experienceId}`;
     const requestBody = {
       title,
       location,
@@ -71,92 +75,99 @@ function EditExperience() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(requestBody),
+      }).then(() => {
+        navigate("/");
       });
-
-      if (response.ok) {
-      } else {
-      }
     } catch (error) {
       console.error("Error editing experience: ", error);
     }
   };
 
   return (
-    <div>
-      <h2>Edit Experience in {location}</h2>
-      <form onSubmit={handleEditSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            value={title}
-            onChange={handleTitle}
-            required
-            name="title"
-          />
-        </label>
-        <br />
-        <label>
-          Experience Type:
-          <input
-            type="text"
-            value={experienceType}
-            onChange={handleExperienceType}
-            required
-            name="experienceType"
-          />
-        </label>
-        <br />
+    <>
+      {user?.admin && (
+        <div>
+          <h2>Edit Experience in {location}</h2>
+          <form onSubmit={handleEditSubmit}>
+            <label>
+              Title:
+              <input
+                type="text"
+                value={title}
+                onChange={handleTitle}
+                required
+                name="title"
+              />
+            </label>
+            <br />
+            <label>
+              Experience Type:
+              <input
+                type="text"
+                value={experienceType}
+                onChange={handleExperienceType}
+                required
+                name="experienceType"
+              />
+            </label>
+            <br />
 
-        <label>
-          Description:
-          <textarea
-            value={description}
-            onChange={handleDescription}
-            required
-            name="description"
-          />
-        </label>
-        <br />
+            <label>
+              Description:
+              <textarea
+                value={description}
+                onChange={handleDescription}
+                required
+                name="description"
+              />
+            </label>
+            <br />
 
-        <label>
-          Duration:
-          <input
-            type="text"
-            value={duration}
-            onChange={handleDuration}
-            required
-            name="duration"
-          />
-        </label>
-        <br />
+            <label>
+              Duration:
+              <input
+                type="text"
+                value={duration}
+                onChange={handleDuration}
+                required
+                name="duration"
+              />
+            </label>
+            <br />
 
-        <label>
-          Price:
-          <input
-            type="number"
-            value={price}
-            onChange={handlePrice}
-            required
-            name="price"
-          />
-        </label>
-        <br />
+            <label>
+              Price:
+              <input
+                type="number"
+                value={price}
+                onChange={handlePrice}
+                required
+                name="price"
+              />
+            </label>
+            <br />
 
-        <label>
-          Upload Image:
-          <input
-            type="file"
-            onChange={handleImage}
-            accept="image/*"
-            required
-            name="imageUrl"
-          />
-        </label>
-        <br />
-        <button type="submit">Edit Experience</button>
-      </form>
-    </div>
+            <label>
+              Upload Image:
+              <input
+                type="file"
+                onChange={handleImage}
+                accept="image/*"
+                name="imageUrl"
+              />
+            </label>
+            <br />
+            <CloudinaryContext
+              cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
+            >
+              <Image publicId={imageUrl} width="150" />
+            </CloudinaryContext>
+
+            <button type="submit">Edit Experience</button>
+          </form>
+        </div>
+      )}
+    </>
   );
 }
 
