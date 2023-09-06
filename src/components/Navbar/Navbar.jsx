@@ -74,12 +74,12 @@ function Navbar() {
           {!isLoggedIn && (
             <>
               <li className="nav-item ml-auto d-flex justify-content-end">
-                <Link style={{ color: 'black' }} className="nav-link font-weight-bold share-font" to="/signup">
+                <Link style={{fontFamily: 'Share', color: 'black' }} className="nav-link font-weight-bold share-font" to="/signup">
                   Sign Up
                 </Link>
               </li>
               <li className="nav-item ml-auto d-flex justify-content-end">
-                <Link style={{ color: 'black' }} className="nav-link share-font" to="/login">
+                <Link style={{fontFamily: 'Share', color: 'black' }} className="nav-link share-font" to="/login">
                   Login
                 </Link>
               </li>

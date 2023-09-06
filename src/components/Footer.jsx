@@ -11,12 +11,10 @@ export default function App() {
     };
 
     return (
-        <MDBFooter style={estiloFooter} className='text-center text-lg-start text-muted pt-2'>
-            {/* <section className='d-flex justify-content-center justify-content-lg-between p-1 border-bottom'>
-            </section> */}
+        <MDBFooter style={estiloFooter} className='text-center text-lg-start text-muted pt-3 mt-4'>
 
 
-            <section className='p-2'>
+            <section className='p-4'>
                 <MDBContainer className='text-center text-md-start mt-2'>
                     <MDBRow className='mt-2'>
                         <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4 text-center'>

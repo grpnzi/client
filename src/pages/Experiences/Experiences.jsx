@@ -131,8 +131,8 @@ function Experiences() {
                         <Card.Title style={{fontFamily: 'Share'}}>{experience.title}</Card.Title>
                         <Card.Text style={{color: 'grey', fontFamily: 'Russo One'}}>{experience.experienceType}</Card.Text>
                         <Card.Text style={{color: 'black', fontFamily: 'Russo One'}}>${experience.price}</Card.Text>
-                        <Link className="ml-auto" to={`/country/${location}/${experience._id}`}>
-                        <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning mt-2" style={{ width: '150px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px' }}>Read More</button>
+                        <Link className="mt-auto" to={`/country/${location}/${experience._id}`}>
+                        <MDBBtn type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning mt-2" style={{ width: '150px', maxHeight: '40px', fontFamily: 'Share', fontSize: '14px', position:'relative', bottom:'0' }}>Read More</MDBBtn>
                         </Link>
 
                       </Card.Body>
