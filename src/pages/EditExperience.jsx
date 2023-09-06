@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./../context/auth.context";
 import { CloudinaryContext, Image } from "cloudinary-react";
+import { Form, Button } from "react-bootstrap"
 
 
 function EditExperience() {
@@ -53,7 +54,7 @@ function EditExperience() {
   const handleDuration = (e) => setDuration(e.target.value);
   const handlePrice = (e) => setPrice(e.target.value);
 
-  const handleImage = (e) => {};
+  const handleImage = (e) => { };
 
   const handleEditSubmit = async (e) => {
     e.preventDefault();
@@ -84,91 +85,85 @@ function EditExperience() {
   };
 
   return (
+
     <>
       {user?.admin && (
         <div>
-          <h2>Edit Experience in {location}</h2>
-          <form onSubmit={handleEditSubmit}>
-            <label>
-              Title:
-              <input
+          <div>
+            <h2 className="mt-5 mb-3 text-center" style={{ fontFamily: 'Russo One', fontSize: '25px', color: 'black' }}>Edit Experience</h2>
+            <Form onSubmit={handleEditSubmit} className="mx-auto w-50">
+              <Form.Label style={{ fontFamily: 'Share', fontSize: '18px', color: 'black' }}></Form.Label>
+              <div className="justify-content-start" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Title:</div>
+              <Form.Control
                 type="text"
                 value={title}
                 onChange={handleTitle}
                 required
                 name="title"
               />
-            </label>
-            <br />
-            <label>
-              Experience Type:
-              <input
+
+
+              <Form.Label className="mt-4 mb-2" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Experience type:</Form.Label>
+              <Form.Control
                 type="text"
                 value={experienceType}
                 onChange={handleExperienceType}
                 required
                 name="experienceType"
               />
-            </label>
-            <br />
 
-            <label>
-              Description:
-              <textarea
+              <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Description:</Form.Label>
+              <Form.Control
+                as="textarea"
                 value={description}
                 onChange={handleDescription}
                 required
                 name="description"
               />
-            </label>
-            <br />
 
-            <label>
-              Duration:
-              <input
+              <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Duration:</Form.Label>
+              <Form.Control
                 type="text"
                 value={duration}
                 onChange={handleDuration}
                 required
                 name="duration"
               />
-            </label>
-            <br />
 
-            <label>
-              Price:
-              <input
+              <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Price:</Form.Label>
+              <Form.Control
                 type="number"
                 value={price}
                 onChange={handlePrice}
                 required
                 name="price"
               />
-            </label>
-            <br />
 
-            <label>
-              Upload Image:
-              <input
+              <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Upload Image:</Form.Label>
+              <Form.Control
                 type="file"
                 onChange={handleImage}
                 accept="image/*"
+                required
                 name="imageUrl"
               />
-            </label>
-            <br />
-            <CloudinaryContext
-              cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
-            >
-              <Image publicId={imageUrl} width="150" />
-            </CloudinaryContext>
 
-            <button type="submit">Edit Experience</button>
-          </form>
+              <CloudinaryContext
+                cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
+              >
+                <Image className="ml-auto mt-4" style={{
+                  width: '600px', maxHeight: '500px', display: 'block', margin: '0 auto' }} publicId={imageUrl} />
+              </CloudinaryContext>
+              <Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning  my-4 mt-5 mb-5 p-2" style={{ width: '723px', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}>Edit</Button>
+            </Form>
+          </div>
         </div>
       )}
     </>
-  );
+  )
+
+
+
 }
 
 export default EditExperience;

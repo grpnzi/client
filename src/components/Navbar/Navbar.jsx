@@ -59,13 +59,18 @@ function Navbar() {
             <Link to="/cart" className="mr-2">
                 <MDBIcon icon="cart-plus" className="me-2 mt-2 p-1" />
               </Link>
+              {user?.admin && <li className="nav-item">
+                <Link style={{ fontFamily: 'Share', color: 'black' }} className="nav-link font-weight-bold" to="/create">
+                  Create
+                </Link>
+              </li>}
               <li className="nav-item">
                 <Link style={{ fontFamily: 'Share', color: 'black' }} className="nav-link font-weight-bold" to="/profile">
                   {user && user.name}
                 </Link>
               </li>
               <li style={{ fontFamily: 'Share', color: 'black' }} className="nav-item font-weight-bold">
-                <button className="nav-link" onClick={logOutUser}>
+                <button style={{ fontFamily: 'Share', color: 'black' }} className="nav-link" onClick={logOutUser}>
                   Logout
                 </button>
               </li>
@@ -77,6 +82,7 @@ function Navbar() {
                 <Link style={{fontFamily: 'Share', color: 'black' }} className="nav-link font-weight-bold share-font" to="/signup">
                   Sign Up
                 </Link>
+                <img src={process.env.PUBLIC_URL + '/lupa-removebg-preview.png'} alt="Mi Logo" className="mr-2" style={{ width: '60px' }} />
               </li>
               <li className="nav-item ml-auto d-flex justify-content-end">
                 <Link style={{fontFamily: 'Share', color: 'black' }} className="nav-link share-font" to="/login">

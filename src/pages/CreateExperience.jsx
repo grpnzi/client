@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { CloudinaryContext, ImageUrl } from "cloudinary-react";
+import { Form, Button } from 'react-bootstrap';
+
 
 function AddExperience() {
   const [title, setTitle] = useState("");
@@ -73,8 +75,77 @@ function AddExperience() {
   };
   return (
     <div>
-      <h2>Create New Experience</h2>
-      <form onSubmit={handleCreateSubmit}>
+      <div>
+      <h2 className="mt-5 mb-3 text-center" style={{ fontFamily: 'Russo One', fontSize: '25px', color: 'black' }}>Create New Experience</h2>
+      <Form onSubmit={handleCreateSubmit} className="mx-auto w-50">
+        <Form.Label style={{ fontFamily: 'Share', fontSize: '18px', color: 'black' }}></Form.Label>
+        <div className="justify-content-start" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Title:</div>
+        <Form.Control
+          type="text"
+          value={title}
+          onChange={handleTitle}
+          required
+          name="title"
+        />
+
+        <Form.Label className="mt-4 mb-2" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Location:</Form.Label>
+        <Form.Control
+          type="text"
+          value={location}
+          onChange={handlelocation}
+          required
+          name="location"
+        />
+
+        <Form.Label className="mt-4 mb-2" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Experience type:</Form.Label>
+        <Form.Control
+          type="text"
+          value={experienceType}
+          onChange={handleExperienceType}
+          required
+          name="experienceType"
+        />
+
+        <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Description:</Form.Label>
+        <Form.Control
+          as="textarea"
+          value={description}
+          onChange={handleDescription}
+          required
+          name="description"
+        />
+
+        <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Duration:</Form.Label>
+        <Form.Control
+          type="text"
+          value={duration}
+          onChange={handleDuration}
+          required
+          name="duration"
+        />
+
+        <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Price:</Form.Label>
+        <Form.Control
+          type="number"
+          value={price}
+          onChange={handlePrice}
+          required
+          name="price"
+        />
+
+        <Form.Label className="mt-4 mb-1" style={{ fontFamily: 'Russo One', fontSize: '16px', color: 'black' }}>Upload Image:</Form.Label>
+        <Form.Control
+          type="file"
+          onChange={handleImage}
+          accept="image/*"
+          required
+          name="imageUrl"
+        />
+
+        <Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning  my-4 mt-5 mb-5 p-2" style={{ width: '723px', maxHeight: '40px', fontFamily: 'Share', fontSize: '19px' }}>Create</Button>
+      </Form>
+    </div>
+      {/* <form onSubmit={handleCreateSubmit}>
         <label>
           Title:
           <input
@@ -158,7 +229,7 @@ function AddExperience() {
         </label>
         <br />
         <button type="submit">Create Experience</button>
-      </form>
+      </form> */}
     </div>
   );
 }
