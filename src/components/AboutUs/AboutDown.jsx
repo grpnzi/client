@@ -15,13 +15,18 @@ function AboutDown() {
   return (
     <div className="about-down" id="about">
 
+<section className="bg-black p-4">
+      <h2 className="text-white">Mi Sección con Fondo Negro</h2>
+      <p className="text-white">Contenido de la sección.</p>
+    </section>
+
 
       <div className="row featurette mt-2">
         <div className="col-md-7">
-          <h2 className="featurette-heading">WildXperience, <span className="text-muted"> Your Gateway to Extraordinary Adventures.</span></h2>
-          <p className="lead">At WildXperience, we are your gateway to a world of extraordinary adventures, rich cultural immersion, and delectable culinary journeys. We understand that when it comes to planning your dream adventures, trust is paramount. We're not just another travel agency; we're a passionate team of seasoned globetrotters with a deep love for exploration.</p>
-          <p>Find the experience that suits you the most!.</p>
-          <button type="button" onClick={handleScrollToTop} className="btn-dark btnHook">Explore</button>
+          <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading">WildXperience, <span className="text-muted"> Your Gateway to Extraordinary Adventures</span></h2>
+          <p  style={{ fontFamily: 'Share', fontSize: '20px' }} className="lead">At WildXperience, we are your gateway to a world of extraordinary adventures, rich cultural immersion, and delectable culinary journeys. We understand that when it comes to planning your dream adventures, trust is paramount. We're not just another travel agency; we're a passionate team of seasoned globetrotters with a deep love for exploration.</p>
+          <p className="mb-4 mt-4" style={{ fontFamily: 'Russo One', fontSize: '14px' }}>Find the experience that suits you the most!</p>
+          <button type="button" onClick={handleScrollToTop} className="text-center btnHook btn btn-sm btn-dark rounded border border-warning mt-3" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Russo One', fontSize: '16px' }}>Explore</button>
 
         </div>
         <div className="col-md-5">
@@ -44,7 +49,7 @@ function AboutDown() {
 
       <div className="row featurette">
         <div className="col-md-7 order-md-2">
-          <h2 className="featurette-heading">Three Unique Experiences</h2>
+          <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading">Three Unique Experiences</h2>
           {<ul className="list-down">
             <li className="aboutLi"><strong>Xtreme Adventures:</strong> Seek the adrenaline rush? Our Xtreme experiences are designed to thrill, from scaling towering peaks to diving into the depths of the ocean, pushing boundaries and igniting your sense of adventure.</li>
             <li className="aboutLi"><strong>Cultural Immersion:</strong> We believe the heart of any journey lies in its culture. Delve deep into traditions, history, and vibrant customs through our Cultural experiences. Engage with local communities, participate in ancient rituals, and gain insights that go beyond the surface.</li>
@@ -72,8 +77,8 @@ function AboutDown() {
 
       <div className="row featurette">
         <div className="col-md-7">
-          <h2 className="featurette-heading">Your Journey, <span className="text-muted"> Our Distinctive Promise.</span></h2>
-          <p className="lead">Our journey begins with a simple promise: we travel extensively, immersing ourselves in diverse cultures, traversing varied landscapes, and seeking extraordinary experiences. It's this firsthand knowledge that sets us apart. We're not just selling destinations; we're offering a piece of our own wanderlust-infused souls.</p>
+          <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading">Your Journey, <span className="text-muted"> Our Distinctive Promise.</span></h2>
+          <p style={{ fontFamily: 'Share', fontSize: '20px' }} className="lead">Our journey begins with a simple promise: we travel extensively, immersing ourselves in diverse cultures, traversing varied landscapes, and seeking extraordinary experiences. It's this firsthand knowledge that sets us apart. We're not just selling destinations; we're offering a piece of our own wanderlust-infused souls.</p>
         </div>
         <div className="col-md-5">
           <img
@@ -89,8 +94,8 @@ function AboutDown() {
       <br />
 
     <div>
-      <h2 className="featurette-heading">Your Trusted Partner </h2>
-      <p className="lead">Why trust WildXperience? Because we're more than a travel agency, we're your partners in crafting experiences that will leave an indelible mark on your heart and soul. Let WildXperience turn your wanderlust into reality; together, we'll embark on the journey of a lifetime, filled with Xtreme thrills, cultural immersion, and gastronomic delights.</p>
+      <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading">Your Trusted Partner </h2>
+      <p style={{ fontFamily: 'Share', fontSize: '20px' }} className="lead">Why trust WildXperience? Because we're more than a travel agency, we're your partners in crafting experiences that will leave an indelible mark on your heart and soul. Let WildXperience turn your wanderlust into reality; together, we'll embark on the journey of a lifetime, filled with Xtreme thrills, cultural immersion, and gastronomic delights.</p>
     </div>
 
 

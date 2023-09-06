@@ -1,11 +1,23 @@
 function About() {
     return (
+
+
+      
       <div className="travel-agency">
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Federo&display=swap');
+          .share-font {
+            font-family: 'Federo', sans-serif;
+          }
+
+        `}
+      </style>
         <header>
-          <h1 style={{ fontFamily: 'Russo One' }}>Welcome to WildXperience</h1>
+          <h1 className="mt-3"style={{ fontFamily: 'Russo One' }}>WildXperience</h1>
         </header>
         <section className="map-section">
-          <p style={{fontFamily: 'Share', fontSize: '20px', fontWeight: "bold" }}>Click on the map to choose your destination and start your adventure!</p>
+          <p className="mt-4" style={{fontFamily: 'Federo', fontSize: '20px', fontWeight: "bold" }}>Click on the map to choose your destination and start your adventure!</p>
         </section>
       </div>
     );
