@@ -46,7 +46,7 @@ function Experiences() {
   return (
     <>
       <MDBContainer>
-        <MDBRow>
+        <MDBRow className="text-center">
           <MDBCol lg={4}>
             <img
               className="rounded-circle mt-5"

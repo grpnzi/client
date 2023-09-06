@@ -75,17 +75,17 @@ export default function App() {
                             </p>
                         </MDBCol>
 
-                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-4 ml-3 text-center text-md-center' style={{ color: 'black' }}>
-                            <h6 style={{ color: 'black' }} className='text-uppercase fw-bold mb-4'>Contact</h6>
-                            <p className='share-font'>
+                        <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-4 ml-3 text-center text-md-center' style={{fontFamily: 'Share', color: 'black' }}>
+                            <h6 style={{color: 'black' }} className='text-uppercase fw-bold mb-4'>Contact</h6>
+                            <p style={{fontFamily: 'Share', color: 'black' }} className='share-font'>
                                 <MDBIcon icon="home" className="me-3" />
                                 Tanzania
                             </p>
-                            <p className='share-font mx-auto mb-md-0 mb-4'>
+                            <p style={{fontFamily: 'Share', color: 'black' }} className='share-font mx-auto mb-md-0 mb-4'>
                                 <MDBIcon icon="envelope" className="me-3" />
                                 info@wildXperience.com
                             </p>
-                            <p className='share-font mx-auto mb-md-0 mb-4 mt-3'>
+                            <p style={{fontFamily: 'Share', color: 'black' }} className='share-font mx-auto mb-md-0 mb-4 mt-3'>
                                 <MDBIcon icon="phone" className="me-3" />
                                 + 34 366 567 889
                             </p>
