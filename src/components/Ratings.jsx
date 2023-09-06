@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { AuthContext } from "../context/auth.context";
-import IsPrivate from "./IsPrivate/IsPrivate";
 import StarRatings from 'react-star-ratings';
 
 const Rating = (props) => {
@@ -10,6 +9,7 @@ const Rating = (props) => {
     const [ratings, setRatings] = useState([])
     const [rate, setRate] = useState(false)
     const [ratingValue, setRatingValue] = useState(0);
+    const [error, setError] = useState("");
     const apiUrl = `${process.env.REACT_APP_SERVER_URL}/rating/${experienceId}/all`
 
     useEffect(() => {
@@ -41,8 +41,8 @@ const Rating = (props) => {
     const clampedRating = Math.min(5, Math.max(0, Math.round(averageRating)));
 
 
-    const handleRate = () => {
-
+    const handleRate = (e) => {
+        e.preventDefault()
         fetch(`${process.env.REACT_APP_SERVER_URL}/rating/${experienceId}/create`, {
             method: "POST",
             headers: {
@@ -55,11 +55,18 @@ const Rating = (props) => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                console.log('DATA: ',data);
                 setRate(false);
+                if(data.error)
+                {
+                    setError(data.error)
+                }
                 updateStars()
             })
-            .catch((err) => console.log(err));
+            .catch((err) =>{
+                console.log('THIS IS THE CATCH ',err)
+
+            });
     };
 
     const updateStars = () => {
@@ -76,29 +83,41 @@ const Rating = (props) => {
     }
 
     return (
-        <>
+        <div className="mx-4">
             {!rate ?
-                <div>
-                    <div>
-                        <StarRatings
-                            rating={clampedRating}
-                            starDimension="20px"
-                            starSpacing="2px"
-                            starRatedColor="gold"
-                            starEmptyColor="gray"
-                            numberOfStars={5}
-                        />
+                <div className="mx-2 in-line">
+                    <div className="d-inline-block align-top"> {/* Add this container */}
+                        <div>
+                            <StarRatings
+                                rating={clampedRating}
+                                starDimension="20px"
+                                starSpacing="2px"
+                                starRatedColor="gold"
+                                starEmptyColor="gray"
+                                numberOfStars={5}
+                            />
+                        </div>
+                        <div className="d-inline-block align-top mt-1">
+                            <p>Average Rating: {averageRating.toFixed(1)} ➡️ Total ratings: {ratings.length}</p>
+                            {error && <p className="text-danger">{error}</p>}
+                        </div>
+                        <div className="d-inline-block align-top mx-2 mt-1">
+                            {user ? 
+                                <>
+                                <button className="btn-sm btn-dark rounded border border-warning"
+                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}  
+                                    onClick={() => setRate(true)}>RATE
+                                </button>
+                                </>
+                                :
+                                <Link to="/login"><button className="btn-sm btn-dark rounded border border-warning"
+                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}>Rate</button></Link>}
+                        </div>
                     </div>
-                    <p>Average Rating: {averageRating.toFixed(1)} ➡️ Total ratings: {ratings.length}</p>
-
-                    {user ? <button onClick={() => setRate(true)}>Rate</button>
-                        :
-                        <Link to="/login"><button>Rate</button></Link>}
-
                 </div>
                 :
-                <div>
-                    <div>
+                <>
+                    <div className="mx-2 in-line">
                         <form>
                             <label>
                                 Your Rating (0-10):
@@ -110,20 +129,22 @@ const Rating = (props) => {
                                     onChange={(e) => setRatingValue(Number(e.target.value))}
                                 />
                             </label>
-                            <button type="button" onClick={handleRate}>
+                            <button type="button" className="btn-sm btn-dark rounded border border-warning"
+                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
+                                    onClick={handleRate}>
                                 Submit
                             </button>
-                            <button type="button" onClick={() => setRate(false)}>
+                            <button type="button" className="btn-sm btn-dark rounded border border-warning"
+                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
+                                    onClick={() => setRate(false)}>
                                 Cancel
                             </button>
                         </form>
                     </div>
-                    <button onClick={() => setRate(true)}>Rate</button>
-
-                </div>
+                </>
 
             }
-        </>
+        </div>
     );
 };
 

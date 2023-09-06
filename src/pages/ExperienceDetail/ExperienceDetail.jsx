@@ -74,6 +74,7 @@ function ExperienceDetail() {
                             </div>
                             <div className="col-md-6 experienceDiv">
                                 <h1 className="mt-4">{experience.title}</h1>
+                                <Rating experienceId={experienceId}/>
                                 <p className="lead">{experience.description}</p>
                                 <p className="mt-4" style={{ fontFamily: 'Share', fontSize: '19px' }}>
                                     Price: ${experience.price}
