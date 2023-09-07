@@ -3,3 +3,8 @@
     overflow-x: hidden
 
 }
+
+.navbar {
+  position: relative;
+  z-index: 1000; /* Adjust the value as needed */
+}
