@@ -39,7 +39,7 @@ function Cart() {
 
                     <hr />
 
-                    <div className="d-flex justify-content-center align-items-center mb-4">
+                    <div className="d-flex justify-content-start align-items-center mb-4 m-3">
                       <div>
                         <p className="mb-1">Shopping cart</p>
                         <p className="mb-0">You have {cart?.length} items in your cart</p>
