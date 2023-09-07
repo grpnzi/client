@@ -83,9 +83,9 @@ const Rating = (props) => {
     }
 
     return (
-        <div className="mx-4">
+        <div >
             {!rate ?
-                <div className="mx-2 in-line">
+                <div className=" in-line">
                     <div className="d-inline-block align-top"> {/* Add this container */}
                         <div>
                             <StarRatings
@@ -101,7 +101,7 @@ const Rating = (props) => {
                             <p>Average Rating: {averageRating.toFixed(1)} ➡️ Total ratings: {ratings.length}</p>
                             {error && <p className="text-danger">{error}</p>}
                         </div>
-                        <div className="d-inline-block align-top mx-2 mt-1">
+                        <div className="d-inline-block align-top  mt-1">
                             {user ? 
                                 <>
                                 <button className="btn-sm btn-dark rounded border border-warning"
