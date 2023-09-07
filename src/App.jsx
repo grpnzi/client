@@ -9,8 +9,7 @@ import ExperienceDetail from "./pages/ExperienceDetail/ExperienceDetail";
 import Footer from "./components/Footer";
 import Experiences from "./pages/Experiences/Experiences";
 import AllExperiences from "./pages/AllExperiences";
-
-
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Navbar from "./components/Navbar/Navbar";
 import SearchBar from "./components/SearchBar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -19,6 +18,7 @@ import AddToCart from "./pages/Cart/AddToCart";
 import UserProfile from "./components/Profile/UserProfile";
 import AddExperience from "./pages/CreateExperience";
 import EditExperience from "./pages/EditExperience";
+
 function App() {
   return (
     <div className="App">
@@ -73,6 +73,7 @@ function App() {
 
         <Route path="/search" element={<SearchBar />}></Route>
 
+        <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
       <Footer />
     </div>
