@@ -23,6 +23,11 @@ function ExperienceDetail() {
     const [experience, setExperience] = useState(null);
     const [expReviews, setExpReviews] = useState(null);
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+    
+
     const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/${location}/${experienceId}`
     const apiUrlReviews = `${process.env.REACT_APP_SERVER_URL}/reviews/${experienceId}`
     console.log(cart);
