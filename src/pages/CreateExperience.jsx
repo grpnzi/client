@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CloudinaryContext, ImageUrl } from "cloudinary-react";
 import { Form, Button } from 'react-bootstrap';
 
 
@@ -50,7 +49,7 @@ function AddExperience() {
       price,
       imageUrl,
     };
-    console.log(requestBody);
+
 
     fetch(apiUrl, {
       method: "POST",
@@ -142,98 +141,13 @@ function AddExperience() {
             name="imageUrl"
           />
 
-<Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-5 mb-5 p-2" style={{ width: '100%', maxWidth: '723px', fontFamily: 'Share', fontSize: '19px', maxHeight: '48©px' }}>
-  Create
-</Button>
+          <Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-5 mb-5 p-2" style={{ width: '100%', maxWidth: '723px', fontFamily: 'Share', fontSize: '19px', maxHeight: '48©px' }}>
+            Create
+          </Button>
 
 
         </Form>
       </div>
-      {/* <form onSubmit={handleCreateSubmit}>
-        <label>
-          Title:
-          <input
-            type="text"
-            value={title}
-            onChange={handleTitle}
-            required
-            name="title"
-          />
-        </label>
-        <br />
-
-        <label>
-          Location:
-          <input
-            type="text"
-            value={location}
-            onChange={handlelocation}
-            required
-            name="location"
-          />
-        </label>
-        <br />
-
-        <label>
-          Experience Type:
-          <input
-            type="text"
-            value={experienceType}
-            onChange={handleExperienceType}
-            required
-            name="experienceType"
-          />
-        </label>
-        <br />
-
-        <label>
-          Description:
-          <textarea
-            value={description}
-            onChange={handleDescription}
-            required
-            name="description"
-          />
-        </label>
-        <br />
-
-        <label>
-          Duration:
-          <input
-            type="text"
-            value={duration}
-            onChange={handleDuration}
-            required
-            name="duration"
-          />
-        </label>
-        <br />
-
-        <label>
-          Price:
-          <input
-            type="number"
-            value={price}
-            onChange={handlePrice}
-            required
-            name="price"
-          />
-        </label>
-        <br />
-
-        <label>
-          Upload Image:
-          <input
-            type="file"
-            onChange={handleImage}
-            accept="image/*"
-            required
-            name="imageUrl"
-          />
-        </label>
-        <br />
-        <button type="submit">Create Experience</button>
-      </form> */}
     </div>
   );
 }
