@@ -2,7 +2,6 @@ import { useState, useContext, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
-// import 'bootstrap/dist/css/bootstrap.min.css'
 
 function LoginPage() {
   const [email, setEmail] = useState("");

@@ -8,8 +8,6 @@ import "typeface-montserrat";
 import { MDBIcon } from "mdb-react-ui-kit";
 
 function Navbar() {
-  // Subscribe to the AuthContext to gain access to
-  // the values from AuthContext.Provider's `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
   const { cart } = useContext(CartContext); // Access the cart context
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
