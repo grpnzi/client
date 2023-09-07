@@ -146,9 +146,9 @@ function ReviewCard(props) {
 
                                 <div className="d-flex justify-content-between align-items-center">
                                     {user?._id ? 
-                                        <button className='btn-outline-light' onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</button>
+                                        <button className='btn-white'   onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</button>
                                         :
-                                        <Link to="/login"><button className='btn-outline-light'>❤️{review.likes.length}</button></Link>
+                                        <Link to="/login"><button className='btn-white'>❤️{review.likes.length}</button></Link>
                                     }
                                 </div>
                             </div>
