@@ -20,7 +20,7 @@ function SearchBar({ onTagSearch, handleKeyDown }) {
 
     <div className="container mt-5">
       <div className="row justify-content-center align-items-center">
-        <div className="col-md-6">
+        <div className="col-md-6 mb-2">
           <input
             style={{ height: '50px', fontSize: '16px' }}
             className="form-control"
