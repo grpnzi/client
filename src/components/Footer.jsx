@@ -92,7 +92,6 @@ export default function App() {
               </p>
             </MDBCol>
 
-
             <MDBCol
               md="3"
               lg="2"
@@ -136,11 +135,11 @@ export default function App() {
             </MDBCol>
 
             <MDBCol
-              md="4"
-              lg="3"
-              xl="3"
-              className="mx-auto mb-4 ml-3 text-center text-md-center"
-              style={{ fontFamily: "Share", color: "black" }}
+              md="3"
+              lg="2"
+              xl="2"
+              className="mx-auto mb-4"
+              style={{ color: "black" }}
             >
               <h6
                 style={{ color: "black" }}
@@ -153,7 +152,11 @@ export default function App() {
                 className="share-font"
               >
                 <MDBIcon icon="home" className="me-3" />
-                <Link to={"https://goo.gl/maps/f3kDbB5aWi9x3c1k6"}>
+                <Link
+                  to="https://www.google.com/maps/place/Prison/@-6.1196191,39.1659957,17.68z/data=!4m6!3m5!1s0x185cd1bda709bc35:0x61b9f3403a7674e0!8m2!3d-6.1188901!4d39.1673095!16s%2Fg%2F11r9w0f9j3?entry=tts&shorturl=1"
+                  target="_blank"
+                  className="text-primary"
+                >
                   Tanzania
                 </Link>
               </p>
