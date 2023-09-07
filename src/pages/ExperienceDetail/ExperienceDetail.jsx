@@ -66,7 +66,7 @@ function ExperienceDetail() {
                 <>
                     <div className="container-fluid mt-5 -5">
                         <div className="row d-flex experienceContainer rounded p-4 mx-4 customCss background">
-                            <div className="col-md-6">
+                            <div className="col-md-6 mt-3 pb-2">
                                 <div className="d-flex align-items-center justify-content-center">
                                     <img
                                         src={experience.imageUrl}
