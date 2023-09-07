@@ -5,46 +5,52 @@
   }
 
   #ES {
-    fill: #008000;
+    fill: #dde817;
   }
   #ES:hover {
-    fill: #008000;
+    fill: #6c7403;
+  }
+  #IN {
+    fill: #208edd;
+  }
+  #IN:hover {
+    fill: #032a95;
   }
   #AR {
     fill: #008000;
   }
   #AR:hover {
-    fill: #008000;
+    fill: #086b08;
   }
 
   #TH {
-    fill: #4A3476;
+    fill: #f72bcb;
   }
   #TH:hover {
-    fill: #805678;}
+    fill: #80005c;}
   #CL {
-    fill: #800000;
+    fill: #6391f4;
   }
   #CL:hover {
-    fill: #800000;
+    fill: #4423d7;
   }
   #FI {
     fill: #00F;
   }
   #FI:hover {
-    fill: #000080;
+    fill: #1d074e;
   }
   #KR {
     fill: #00F;
   }
   #KR:hover {
-    fill: #000080;
+    fill: #251494;
   }
   #CA {
-    fill: #008000;
+    fill: #6ebbb2;
   }
   #CA:hover {
-    fill: #008000;
+    fill: #136a7e;
   }
   #MN {
     fill: #F00;
@@ -62,10 +68,10 @@
   }
 
   #NP {
-    fill: #F00;
+    fill: rgb(255, 140, 0);
   }
   #NP:hover {
-    fill: #800000;
+    fill: #9a4c08;
     
   }
   #NZ {
@@ -79,39 +85,39 @@
     fill: #008000;
   }
   #EG:hover {
-    fill: #008000;
+    fill: #065413;
   }
 
   #PL {
-    fill: #800000;
+    fill: #f73a3a;
   }
   #PL:hover {
     fill: #800000;
   }
 
   #TZ {
-    fill: #199900;
+    fill: #eaa110;
   }
   #TZ:hover {
-    fill: #4A3400;
+    fill: #654e03;
   }
   #VN {
     fill: #199900;
   }
   #VN:hover {
-    fill: #4A3400;
+    fill: #296104;
   }
   #RU {
-    fill: #199900;
+    fill: #ac3ad8;
   }
   #RU:hover {
-    fill: #4A3400;
+    fill: #80007c;
   }
   #ZA {
-    fill: #199900;
+    fill: #d9610c;
   }
   #ZA:hover {
-    fill: #4A3400;
+    fill: #b21414;
   }
   html {
     box-sizing: border-box;
