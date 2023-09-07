@@ -66,16 +66,13 @@ function UserProfile() {
     return (
       <>
         <style>
-        {`
+          {`
           @import url('https://fonts.googleapis.com/css2?family=Share&display=swap');
           .share-font {
             font-family: 'Share'
           }
-
         `}
-      </style>
-
-
+        </style>
         {edit ? (
           <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
             <div className="card p-4">
@@ -103,7 +100,7 @@ function UserProfile() {
                     </div>
                   )}
                   <div className="col-lg-12 mx-auto mb-3 mt-5">
-                    <label className="mb-1 smaller-label" style={{ fontFamily: 'Russo One'}} htmlFor="image">
+                    <label className="mb-1 smaller-label" style={{ fontFamily: 'Russo One' }} htmlFor="image">
                       Profile Image
                     </label>
                     <div className="input-group">
@@ -132,7 +129,7 @@ function UserProfile() {
                   </div>
                   <div className="form-row w-100">
                     <div className="col-lg-12 mx-auto mb-3">
-                      <label className="mb-1" style={{ fontFamily: 'Russo One'}} htmlFor="mail">Email</label>
+                      <label className="mb-1" style={{ fontFamily: 'Russo One' }} htmlFor="mail">Email</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text">
@@ -160,8 +157,8 @@ function UserProfile() {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-12 mx-auto mb-3">
-                    <label className="mb-1" style={{ fontFamily: 'Russo One'}} htmlFor="name">Name</label>
+                  <div className="form-row w-100">
+                    <label className="mb-1" style={{ fontFamily: 'Russo One' }} htmlFor="name">Name</label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text">
@@ -188,8 +185,8 @@ function UserProfile() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mx-auto mb-3 mt-3">
-                  <button style={{ fontFamily: 'Share'}} type="submit" className="btn1 btn-blue editBtn">
+                <div className="col-md-6 mx-auto mb-3 mt-5">
+                  <button style={{ fontFamily: 'Share' }} type="submit" className="btn1 btn-blue editBtn">
                     EDIT
                   </button>
                   {errorMessage && (
@@ -199,7 +196,7 @@ function UserProfile() {
               </form>
               <div className="d-flex mt-2 d-flex justify-content-center">
                 <button
-                style={{ fontFamily: 'Share'}}
+                  style={{ fontFamily: 'Share' }}
                   className="btn1 btn-dark"
                   onClick={() => {
                     setEdit(false);
@@ -213,16 +210,7 @@ function UserProfile() {
             </div>
           </div>
 
-
-
-
-
-
         ) : (
-
-
-
-
 
           <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
             <div className="card p-4">
@@ -230,14 +218,14 @@ function UserProfile() {
                 <div>
                   <img src={user.img} alt={user.name} height="95" width="95" />
                 </div>
-                {<span style={{fontFamily: 'Share'}} className="name mt-3">{user.name} </span>}
+                {<span style={{ fontFamily: 'Share' }} className="name mt-3">{user.name} </span>}
                 <span className="idd">{user.mail} </span>
                 <div className="d-flex flex-row justify-content-center align-items-center mt-3">
                 </div>
                 <div className="d-flex mt-2">
                   <button
                     className="btn1 btn-dark text-center btn btn-sm rounded border border-warning"
-                    style={{ width: '160px', color:'white', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}
+                    style={{ width: '160px', color: 'white', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}
                     onClick={() => {
                       setEdit(true);
                       setEmail(user.email);

@@ -97,15 +97,15 @@ const Rating = (props) => {
                                 numberOfStars={5}
                             />
                         </div>
-                        <div className="d-inline-block align-top mt-1">
+                        <div style={{fontFamily: 'Share', fontSize: '17px'}} className="d-inline-block align-top mt-3">
                             <p>Average Rating: {averageRating.toFixed(1)} ➡️ Total ratings: {ratings.length}</p>
                             {error && <p className="text-danger">{error}</p>}
                         </div>
-                        <div className="d-inline-block align-top  mt-1">
+                        <div className="d-flex justify-content-start">
                             {user ? 
                                 <>
-                                <button className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px',marginLeft: '10px' }}  
+                                <button className="btn-sm btn-dark rounded border border-warning mb-2"
+                                    style={{ width: '130px', height: '30px', fontFamily: 'Share', fontSize: '14px' }}  
                                     onClick={() => setRate(true)}>RATE
                                 </button>
                                 </>
@@ -117,30 +117,56 @@ const Rating = (props) => {
                 </div>
                 :
                 <>
-                    <div className="mx-2 in-line">
-                        <form>
-                            <label>
-                                Your Rating (0-10):
-                                <input
-                                    type="number"
-                                    min="0"
-                                    max="10"
-                                    value={ratingValue}
-                                    onChange={(e) => setRatingValue(Number(e.target.value))}
-                                />
-                            </label>
-                            <button type="button" className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
-                                    onClick={handleRate}>
-                                Submit
-                            </button>
-                            <button type="button" className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
-                                    onClick={() => setRate(false)}>
-                                Cancel
-                            </button>
-                        </form>
-                    </div>
+                    <div className="mx-2">
+  <form>
+    <label
+      style={{
+        fontFamily: 'Russo One',
+        fontSize: '16px',
+        display: 'block', // Para que el label se muestre en una nueva línea en dispositivos móviles
+      }}
+    >
+      Your Rating :
+      <input
+        type="number"
+        min="0"
+        max="10"
+        value={ratingValue}
+        onChange={(e) => setRatingValue(Number(e.target.value))}
+      />
+    </label>
+    <div className="d-flex flex-row justify-content-start align-items-center">
+      {/* Establece flex-direction en columna y alinea elementos en el centro */}
+      <button
+        type="button"
+        className="btn-sm btn-dark rounded border border-warning m-2 mt-3 mb-3 "
+        style={{
+          width: '60px',
+          height: '30px',
+          fontFamily: 'Share',
+          fontSize: '13px',
+        }}
+        onClick={handleRate}
+      >
+        SUBMIT
+      </button>
+      <button
+        type="button"
+        className="btn-sm btn-dark rounded border border-warning mt-3 m-2 mb-3"
+        style={{
+          width: '65px',
+          height: '30px',
+          fontFamily: 'Share',
+          fontSize: '13px',
+        }}
+        onClick={() => setRate(false)}
+      >
+        CANCEL
+      </button>
+    </div>
+  </form>
+</div>
+
                 </>
 
             }

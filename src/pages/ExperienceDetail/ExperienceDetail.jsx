@@ -77,14 +77,14 @@ function ExperienceDetail() {
                                 </div>
                             </div>
                             <div className="col-md-6 experienceDiv">
-                                <h1 className="mt-4">{experience.title}</h1>
+                                <h1 style={{ fontFamily: 'Russo One', fontSize: '35px' }} className="mt-4">{experience.title}</h1>
                                 <Rating experienceId={experienceId}/>
                                 <p className="lead">{experience.description}</p>
                                 <p className="mt-4" style={{ fontFamily: 'Share', fontSize: '19px' }}>
                                     Price: ${experience.price}
                                     {user ? 
                                     <button
-                                        className="text-center btn btn-sm btn-dark rounded border border-warning"
+                                        className="text-center btn btn-sm btn-dark rounded border border-warning m-4"
                                         style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
                                         onClick={() => { cartUpdate(experience) }}>Purchase
                                     </button>
@@ -117,12 +117,14 @@ function ExperienceDetail() {
                                 </MDBRow>
                             </MDBContainer>
                         </section>
+                        <div className="d-flex justify-content-between mb-4 ">
                         {user?.admin && 
                         <Link to={`/country/${location}/${experienceId}/edit`}>
                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
                             style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>EDIT</button>
                         </Link>}
                         {user?.admin && <DeleteExperience location={location}></DeleteExperience>}
+                        </div>
                     </div>
                 </>
 
