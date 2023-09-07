@@ -27,7 +27,6 @@ function ExperienceDetail() {
         window.scrollTo(0, 0)
     }, [])
     
-
     const apiUrl = `${process.env.REACT_APP_SERVER_URL}/country/${location}/${experienceId}`
     const apiUrlReviews = `${process.env.REACT_APP_SERVER_URL}/reviews/${experienceId}`
     console.log(cart);
@@ -83,13 +82,19 @@ function ExperienceDetail() {
                                 <p className="lead">{experience.description}</p>
                                 <p className="mt-4" style={{ fontFamily: 'Share', fontSize: '19px' }}>
                                     Price: ${experience.price}
+                                    {user ? 
                                     <button
                                         className="text-center btn btn-sm btn-dark rounded border border-warning"
                                         style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
-                                        onClick={() => { cartUpdate(experience) }}
-                                    >
-                                        Purchase
+                                        onClick={() => { cartUpdate(experience) }}>Purchase
                                     </button>
+                                    :
+                                    <Link to='/login'> <button
+                                        className="text-center btn btn-sm btn-dark rounded border border-warning"
+                                        style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                        >Purchase
+                                    </button></Link>
+                                    }
                                 </p>
                             </div>
                         </div>
@@ -112,7 +117,11 @@ function ExperienceDetail() {
                                 </MDBRow>
                             </MDBContainer>
                         </section>
-                        {user?.admin && <Link to={`/country/${location}/${experienceId}/edit`}>EDIT</Link>}
+                        {user?.admin && 
+                        <Link to={`/country/${location}/${experienceId}/edit`}>
+                            <button className="text-center btn btn-sm btn-dark rounded border border-warning"
+                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>EDIT</button>
+                        </Link>}
                         {user?.admin && <DeleteExperience location={location}></DeleteExperience>}
                     </div>
                 </>

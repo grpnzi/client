@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function AboutDown() {
   const handleScrollToTop = () => {
@@ -34,7 +34,7 @@ function AboutDown() {
             <img
               className="featurette-image img-fluid mt-4"
               src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2011&q=80"
-              alt="WildXperience Image"
+              alt="WildXperience"
             />
           </Col>
         </Row>
@@ -63,7 +63,7 @@ function AboutDown() {
             <img
               className="featurette-image img-fluid w-800"
               src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
-              alt="Three Unique Experiences Image"
+              alt="Three Unique Experiences"
               
             />
           </Col>
@@ -78,7 +78,7 @@ function AboutDown() {
             <img
               className="featurette-image img-fluid mx-auto mb-5 p-4"
               src="https://images.unsplash.com/photo-1624821558130-b325d7946fc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              alt="Your Journey Image"
+              alt="Your Journey"
             />
           </Col>
         </Row>
