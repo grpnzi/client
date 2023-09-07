@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function SearchBar({ onTagSearch }) {
+function SearchBar({ onTagSearch, handleKeyDown }) {
 const [tags, setTags] = useState([]);
 
   //HANDLE CHANGE
@@ -17,15 +17,17 @@ const [tags, setTags] = useState([]);
 
 
   return (
-    <div className="search-bar">
+    <div className="search-bar d-flex justify-content-center mt-4">
       <input
+      className="w-50"
         type="text"
-        placeholder="Search by title..."
+        placeholder= "Search by title..."
         value={tags}
         onChange={handleTagsChange}
+        onKeyDown={(e)=>handleKeyDown(e)}
       />
       
-      <button onClick={handleTagsSearch}>Search</button>
+      <button className="text-center btn btn-md btn-dark rounded border border-warning p-2" style={{ width: '105px', maxHeight: '37px', fontFamily: 'Share', fontSize: '16px' }} onClick={handleTagsSearch}>Search</button>
     </div>
   );
 }

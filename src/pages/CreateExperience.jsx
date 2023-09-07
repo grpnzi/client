@@ -142,7 +142,7 @@ function AddExperience() {
             name="imageUrl"
           />
 
-<Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-5 mb-5 p-2" style={{ width: '100%', maxWidth: '723px', fontFamily: 'Share', fontSize: '19px', maxHeight: '48©px' }}>
+<Button type="submit" className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-5 mb-5 p-2" style={{ width: '100%', maxWidth: '723px', fontFamily: 'Share', fontSize: '19px', maxHeight: '48px' }}>
   Create
 </Button>
 
