@@ -199,23 +199,32 @@ function UserProfile() {
               <div className="text mt-3"></div>
             </div>
           </div>
+
+
+
+
+
+
         ) : (
+
+
+
+
+
           <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
             <div className="card p-4">
               <div className="image d-flex flex-column justify-content-center align-items-center">
                 <div>
                   <img src={user.img} alt={user.name} height="95" width="95" />
                 </div>
-                {<span className="name mt-3">{user.name} </span>}
+                {<span style={{fontFamily: 'Share'}} className="name mt-3">{user.name} </span>}
                 <span className="idd">{user.mail} </span>
                 <div className="d-flex flex-row justify-content-center align-items-center mt-3">
-                  <span className="number">
-                    12 <span className="follow">Comments</span>
-                  </span>
                 </div>
                 <div className="d-flex mt-2">
                   <button
-                    className="btn1 btn-dark"
+                    className="btn1 btn-dark text-center btn btn-sm rounded border border-warning"
+                    style={{ width: '160px', color:'white', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}
                     onClick={() => {
                       setEdit(true);
                       setEmail(user.email);

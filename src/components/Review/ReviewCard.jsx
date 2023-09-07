@@ -152,7 +152,7 @@ function ReviewCard(props) {
                                     }
                                 </div>
                             </div>
-                            <div className='buttonsContainer'>
+                            <div className='buttonsContainer d-flex justify-content-between mt-2'>
                                 {review.author._id === user?._id &&
                                     <div className='edit'>
                                         {isEditing ? (
