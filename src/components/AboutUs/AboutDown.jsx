@@ -31,11 +31,11 @@ function AboutDown() {
             <button type="button" onClick={handleScrollToTop} className="text-left btnHook btn btn-sm btn-dark rounded border border-warning mt-3" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Russo One', fontSize: '16px' }}>Explore</button>
           </Col>
           <Col md={5}>
-            <img
-              className="featurette-image img-fluid mt-4"
-              src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2011&q=80"
-              alt="WildXperience"
-            />
+          <video controls autoplay muted loop class="featurette-image img-fluid mt-4">
+
+  <source src="https://res.cloudinary.com/dfimhqvub/video/upload/v1694096255/naq5ej1icdhksd4vpuj5.mp4" type="video/mp4"/>
+</video>
+
           </Col>
         </Row>
 
