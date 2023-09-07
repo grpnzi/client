@@ -18,7 +18,7 @@ export default function App() {
   return (
     <MDBFooter
       style={estiloFooter}
-      className="text-center text-lg-start text-muted pt-3 mt-4"
+      className="text-center text-lg-start text-muted pt-3"
     >
       <section className="p-4">
         <MDBContainer className="text-center text-md-start mt-2">
@@ -155,7 +155,7 @@ export default function App() {
                 <Link
                   to="https://www.google.com/maps/place/Prison/@-6.1196191,39.1659957,17.68z/data=!4m6!3m5!1s0x185cd1bda709bc35:0x61b9f3403a7674e0!8m2!3d-6.1188901!4d39.1673095!16s%2Fg%2F11r9w0f9j3?entry=tts&shorturl=1"
                   target="_blank"
-                  className="text-primary"
+                  className="text-black"
                 >
                   Tanzania
                 </Link>

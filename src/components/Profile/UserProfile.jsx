@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { CloudinaryContext, Image } from "cloudinary-react";
+import "typeface-russo-one";
 
 function UserProfile() {
   const { user, updateState } = useContext(AuthContext);
@@ -64,16 +65,27 @@ function UserProfile() {
   if (user) {
     return (
       <>
+        <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Share&display=swap');
+          .share-font {
+            font-family: 'Share'
+          }
+
+        `}
+      </style>
+
+
         {edit ? (
           <div className="container mt-4 mb-4 p-3 d-flex justify-content-center">
             <div className="card p-4">
               <form
                 onSubmit={(e) => handleEditSubmit(e)}
-                className="text-center mt-5"
+                className="text-center mt-3"
               >
                 <div className="image d-flex flex-column justify-content-center align-items-center">
                   {image ? (
-                    <div className="mt-2">
+                    <div>
                       <CloudinaryContext
                         cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
                       >
@@ -91,7 +103,7 @@ function UserProfile() {
                     </div>
                   )}
                   <div className="col-lg-12 mx-auto mb-3 mt-5">
-                    <label className="smaller-label" htmlFor="image">
+                    <label className="mb-1 smaller-label" style={{ fontFamily: 'Russo One'}} htmlFor="image">
                       Profile Image
                     </label>
                     <div className="input-group">
@@ -118,9 +130,9 @@ function UserProfile() {
                       />
                     </div>
                   </div>
-                  <div className="form-row">
+                  <div className="form-row w-100">
                     <div className="col-lg-12 mx-auto mb-3">
-                      <label htmlFor="mail">Email</label>
+                      <label className="mb-1" style={{ fontFamily: 'Russo One'}} htmlFor="mail">Email</label>
                       <div className="input-group">
                         <div className="input-group-prepend">
                           <span className="input-group-text">
@@ -149,7 +161,7 @@ function UserProfile() {
                     </div>
                   </div>
                   <div className="col-lg-12 mx-auto mb-3">
-                    <label htmlFor="name">Name</label>
+                    <label className="mb-1" style={{ fontFamily: 'Russo One'}} htmlFor="name">Name</label>
                     <div className="input-group">
                       <div className="input-group-prepend">
                         <span className="input-group-text">
@@ -176,24 +188,25 @@ function UserProfile() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-6 mx-auto mb-3">
-                  <button type="submit" className="btn1 btn-blue editBtn">
-                    Edit
+                <div className="col-md-6 mx-auto mb-3 mt-3">
+                  <button style={{ fontFamily: 'Share'}} type="submit" className="btn1 btn-blue editBtn">
+                    EDIT
                   </button>
                   {errorMessage && (
                     <p className="error-message">{errorMessage}</p>
                   )}
                 </div>
               </form>
-              <div className="d-flex mt-2">
+              <div className="d-flex mt-2 d-flex justify-content-center">
                 <button
+                style={{ fontFamily: 'Share'}}
                   className="btn1 btn-dark"
                   onClick={() => {
                     setEdit(false);
                     setEmail(null);
                   }}
                 >
-                  Cancel
+                  CANCEL
                 </button>
               </div>
               <div className="text mt-3"></div>
