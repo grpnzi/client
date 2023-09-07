@@ -18,6 +18,8 @@ function AllExperiences() {
         setFilteredExperiences(data);
       })
       .catch((err) => console.log(err));
+
+      
   }, []);
 
   const filterExperiences = (tag) => {
@@ -42,11 +44,20 @@ function AllExperiences() {
     filterExperiences(tag);
   };
 
+  const handleKeyDown = (event) => {
+    console.log(event.key)
+    if (event.key === "Enter") {
+      // Si se presiona Enter, realizar la búsqueda
+      handleTagSearch(event.target.value);
+    }
+  };
 
   return (
     <>
       <SearchBar
         onTagSearch={handleTagSearch}
+        handleKeyDown={handleKeyDown}
+      
       />
 
       {filteredExperiences.length > 0 ? (
@@ -71,6 +82,7 @@ function AllExperiences() {
                     {experience.experienceType}
                   </Card.Text>
                   <Card.Text
+                  className="mt-auto"
                     style={{ color: "black", fontFamily: "Russo One" }}
                   >
                     ${experience.price}
