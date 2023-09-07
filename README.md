@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# FINAL PROJECT - WildXperience -
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WildXperience is an exceptional platform that invites adventurers to embark on a journey filled with extraordinary experiences, deep cultural immersion, and delightful culinary discoveries. Unlike conventional travel agencies, we are not just travel enthusiasts; we are a dedicated team of seasoned globetrotters who share a profound passion for exploration.
 
-## Available Scripts
+### About WildXperience
 
-In the project directory, you can run:
+WildXperience was born out of a desire to provide travelers with unique and unforgettable adventures. We believe that every journey should be more than just a destination; it should be an immersive and transformative experience. With this vision in mind, we have curated a selection of three distinct types of experiences:
 
-### `npm start`
+### 1. Xtreme Adventures
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+For those seeking an adrenaline rush and a taste of the wild side, our Xtreme Adventures are designed to exhilarate. From scaling towering peaks to diving into the depths of the ocean, these experiences push boundaries and ignite your sense of adventure.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Cultural Immersion
 
-### `npm test`
+We firmly believe that the heart of any journey lies in its culture. Our Cultural Immersion experiences allow you to delve deep into the traditions, history, and vibrant customs of your chosen destination. Engage with local communities, participate in ancient rituals, and gain insights that go beyond the surface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 3. Gastronomic Delights
 
-### `npm run build`
+Food is a universal language, and our Gastronomic Delights experiences celebrate the culinary treasures of the world. Discover a country's soul through its flavors, savoring street food delicacies to fine dining in historic settings, all while uncovering the stories behind each dish.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Our website features an interactive world map on the Home page, enabling visitors to click on highlighted countries to discover experiences. New users can easily sign up, granting them access to the site's full features, while returning users enjoy secure login with our robust authentication system. Registered users can actively engage by commenting, rating, and managing their own reviews, with administrators having exclusive content creation and editing privileges. To purchase experiences, users can navigate via the world map or search by tags and keywords, ensuring a seamless and immersive journey. Experiences can be added to the cart, selecting as many adventures as you desire, and then proceed to the cart to purchase your chosen experiences.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# SERVER ROUTES
 
-### `npm run eject`
+## auth.routes.js
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| Route   | HTTP verb | Description                             |
+| ------- | --------- | --------------------------------------- |
+| /signup | POST      | Get the infomation of the signup form   |
+| /login  | POST      | Get the infomation of the login form    |
+| /verify | POST      | Used to verify JWT stored on the client |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## experience.routes.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Route                             | HTTP verb | Description                                      |
+| --------------------------------- | --------- | ------------------------------------------------ |
+| /experiences'                     | GET       | Get all the experiences                          |
+| /create                           | POST      | Get the infomation of the create experience form |
+| /country/:location/experience     | GET       | Get the experiences filtered by country          |
+| /country/:location/:experience_id | GET       | Get a especific experience                       |
+| /experience/edit/:experienceId    | POST      | Get the infomation of the edit experience form   |
+| /experience/delete/:experienceId  | POST      | Delete a especific experience                    |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## index.routes.js
 
-## Learn More
+| Route | HTTP verb | Description |
+| ----- | --------- | ----------- |
+| /     | GET       | All good    |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## profile.routes.js
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Route                   | HTTP verb | Description                                          |
+| ----------------------- | --------- | ---------------------------------------------------- |
+| /profile/edit/:userId   | POST      | Get the infomation of the edit user information form |
+| /profile/delete/:userId | POST      | Delete the user account                              |
 
-### Code Splitting
+## ratings.routes.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Route                 | HTTP verb | Description       |
+| --------------------- | --------- | ----------------- |
+| /:experienceId/all    | GET       | Displays ratings  |
+| /:experienceId/create | POST      | Create new rating |
 
-### Analyzing the Bundle Size
+## review.routes.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| experience_Id | POST | Create comment |
+| /reviews/:experience_id/delete | POST | Delete comment|
+| /user-profile/: | GET | Display user profile |
 
-### Making a Progressive Web App
+## staff.routes.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| /staff | GET | STAFF DISPLAY |
 
-### Advanced Configuration
+# CLIENT ROUTES
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| path="/"| GET | HomePage |
+| path="/signup"| GET | sign up|
+| path="/login" | GET | log in |
+| path="/country/:location/:experienceId" | GET | ExperienceDetail|
+| path="/cart"| GET | cart |
+| path="/profile/:profileId"| GET | profile user|
+| path="/create"| GET | AddExperience |
+| path="/country/:location/:experienceId/edit" | GET | EditExperience|
+| path="/search" | GET | AllExperiences|
+| path="/search" | GET | SearchBar|

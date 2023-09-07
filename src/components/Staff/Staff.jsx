@@ -33,36 +33,36 @@ function Staff() {
           </p>
         </div>
 
-          {guides ? (
-            guides.map((guide) => {
-              return (
-                <div key={guide._id} className="mb-4 mt-5 col-md-4 col-lg-3 d-flex justify-content-center align-items-center">
-                  <Card key={guide.id} className="bg-dark text-white" style={{width: '280px'}}>
-                    <Card.Img
-                      src={guide.img}
-                      alt="Card image"
-                      className="img-thumbnail img-fluid"
-                      style={{ objectFit: 'cover', height: '250px'}}
-                    />
-                    <div
-                      className="card-img-overlay d-flex flex-column justify-content-end align-items-start"
-                      style={{
-                        background: `linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 100%)`,
-                        padding: '20px',
-                        height: '100%',
-                      }}
-                    >
-                      <Card.Title style={{ color: 'white' }}>{guide.name}</Card.Title>
-                      <Card.Text style={{ color: 'white' }} className="text-left">{guide.occupation}</Card.Text>
-                    </div>
-                  </Card>
-                </div>
-              );
-            })
-          ) : (
-            <p>Loading...</p>
-          )}
-        </div>
+        {guides ? (
+          guides.map((guide) => {
+            return (
+              <div key={guide._id} className="mb-4 mt-5 col-md-4 col-lg-3 d-flex justify-content-center align-items-center">
+                <Card key={guide.id} className="bg-dark text-white" style={{ width: '280px' }}>
+                  <Card.Img
+                    src={guide.img}
+                    alt="Card image"
+                    className="img-thumbnail img-fluid"
+                    style={{ objectFit: 'cover', height: '250px' }}
+                  />
+                  <div
+                    className="card-img-overlay d-flex flex-column justify-content-end align-items-start"
+                    style={{
+                      background: `linear-gradient(to top, rgba(0, 0, 0, 0.4) 20%, transparent 100%)`,
+                      padding: '20px',
+                      height: '100%',
+                    }}
+                  >
+                    <Card.Title style={{ color: 'white' }}>{guide.name}</Card.Title>
+                    <Card.Text style={{ color: 'white' }} className="text-left">{guide.occupation}</Card.Text>
+                  </div>
+                </Card>
+              </div>
+            );
+          })
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
 
   );

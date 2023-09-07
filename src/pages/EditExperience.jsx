@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "./../context/auth.context";
 import { CloudinaryContext, Image } from "cloudinary-react";
 import { Form, Button } from "react-bootstrap"
@@ -148,22 +148,22 @@ function EditExperience() {
                 name="imageUrl"
               />
 
-<CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
-  <div className="mx-auto mt-4 text-center">
-    <Image
-      className="img-fluid"
-      style={{ maxWidth: '100%', maxHeight: '500px' }}
-      publicId={imageUrl}
-    />
-  </div>
-</CloudinaryContext>
-<Button
-  type="submit"
-  className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-4 mb-4 p-2"
-  style={{ width: '100%', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}
->
-  Edit
-</Button>
+              <CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
+                <div className="mx-auto mt-4 text-center">
+                  <Image
+                    className="img-fluid"
+                    style={{ maxWidth: '100%', maxHeight: '500px' }}
+                    publicId={imageUrl}
+                  />
+                </div>
+              </CloudinaryContext>
+              <Button
+                type="submit"
+                className="mx-auto d-block btn btn-md btn-dark rounded border border-warning my-4 mt-4 mb-4 p-2"
+                style={{ width: '100%', maxHeight: '50px', fontFamily: 'Share', fontSize: '19px' }}
+              >
+                Edit
+              </Button>
               {/* <CloudinaryContext
                 cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}
               >
