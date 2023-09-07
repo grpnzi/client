@@ -7,7 +7,7 @@ function DeleteExperience(props) {
   const { location } = props;
   const { user } = useContext(AuthContext);
   const { experienceId } = useParams();
-  console.log(experienceId);
+
   const handleDelete = (event) => {
     event.preventDefault();
     const apiUrlDelete = `${process.env.REACT_APP_SERVER_URL}/experience/delete/${experienceId}`;

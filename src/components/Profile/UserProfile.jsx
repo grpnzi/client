@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { CloudinaryContext, Image } from "cloudinary-react";
+import { useNavigate } from "react-router-dom";
 import "typeface-russo-one";
 
 function UserProfile() {
@@ -11,6 +12,7 @@ function UserProfile() {
   const [image, setImage] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { storeToken } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleNameInput = (e) => setName(e.target.value);
   const handleEmailInput = (e) => setEmail(e.target.value);
@@ -37,6 +39,7 @@ function UserProfile() {
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
+
   };
 
   const handleEditSubmit = (e) => {
@@ -60,6 +63,23 @@ function UserProfile() {
         setEdit(false);
       })
       .catch((error) => console.error("Error uploading image: ", error));
+  };
+
+  const handleDelete = (event) => {
+    event.preventDefault();
+    const apiUrlDelete = `${process.env.REACT_APP_SERVER_URL}/profile/delete/${user._id}`;
+    fetch(apiUrlDelete, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(() => {
+        navigate("/");
+        localStorage.clear();
+        updateState(null)
+      })
+      .catch((err) => console.log("Error: ", err));
   };
 
   if (user) {
@@ -194,10 +214,20 @@ function UserProfile() {
                   )}
                 </div>
               </form>
-              <div className="d-flex mt-2 d-flex justify-content-center">
+              <div className="d-flex mt-2 flex-row justify-content-around text-center">
+              <button
+                  style={{ fontFamily: 'Share', width: '100px' }}
+                  className="btn1 btn-danger mb-3"
+                  onClick={(e) => {
+                    handleDelete(e)
+                    setEdit(false);
+                  }}
+                >
+                  DELETE
+                </button>
                 <button
-                  style={{ fontFamily: 'Share' }}
-                  className="btn1 btn-dark"
+                  style={{ fontFamily: 'Share', width: '100px' }}
+                  className="btn1 btn-dark mb-3"
                   onClick={() => {
                     setEdit(false);
                     setEmail(null);
