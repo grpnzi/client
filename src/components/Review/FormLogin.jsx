@@ -9,7 +9,7 @@ function FormLogin(props) {
     const { experienceId, getReviews } = props;
     const [comment, setComment] = useState("");
     const [reviews, setReviews] = useState("");
-    
+
     const apiUrlReviews = `${process.env.REACT_APP_SERVER_URL}/reviews/${experienceId}`;
     const handleCommentInput = e => setComment(e.target.value);
 
@@ -33,9 +33,9 @@ function FormLogin(props) {
 
         console.log(matches);
         if (!matches.length == 0) {
-           setComment('You have already commented, update the older message or delete the older one');
+            setComment('You have already commented, update the older message or delete the older one');
         } else {
-            
+
             const newReview = {
                 comment,
                 userId: user._id,
@@ -48,8 +48,8 @@ function FormLogin(props) {
                 },
                 body: JSON.stringify(newReview),
             })
-            .then(()=> getReviews())
-    
+                .then(() => getReviews())
+
             // Reset the state
             setComment("");
         }
@@ -59,15 +59,18 @@ function FormLogin(props) {
 
     return (
         <>
-        <IsPrivate>
-            <Form onSubmit={handleSubmit} className="d-flex justify-content-center mt-5">
-                <Form.Group className="mb-3 w-50 w-sm-100" controlId="exampleForm.ControlTextarea1">
-                    <Form.Label>Your comment...</Form.Label>
-                    <Form.Control as="textarea" rows={3} name="comment" value={comment} onChange={handleCommentInput} />
-                    <Button type="submit"className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
-                </Form.Group>
-            </Form>
-        </IsPrivate>
+            <IsPrivate>
+                <div style={{height: '100px'}}>
+                    <form onSubmit={handleSubmit} className="d-flex justify-content-center align-items-center mt-5">
+                        <div className="mx-2">
+                            <label htmlFor="comment">Your comment...</label>
+                        </div>
+                        <input className="w-50" type="textarea" name="comment" value={comment} 
+                        onChange={handleCommentInput} placeholder="" style={{height: '100px'}} />
+                        <Button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}>Publish</Button>
+                    </form>
+                </div>
+            </IsPrivate>
         </>
     );
 }
