@@ -30,7 +30,7 @@ function AboutDown() {
             <button type="button" onClick={handleScrollToTop} className="text-left btnHook btn btn-sm btn-dark rounded border border-warning mt-3" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Russo One', fontSize: '16px' }}>Explore</button>
           </Col>
           <Col md={5}>
-          <video controls autoPlay muted loop className="featurette-image img-fluid mt-4">
+          <video controls muted loop className="featurette-image img-fluid mt-4">
 
   <source src="https://res.cloudinary.com/dfimhqvub/video/upload/v1694096255/naq5ej1icdhksd4vpuj5.mp4" type="video/mp4"/>
 </video>
