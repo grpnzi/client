@@ -11,7 +11,7 @@ export default function App() {
     };
 
     return (
-        <MDBFooter style={estiloFooter} className='text-center text-lg-start text-muted pt-3 mt-4'>
+        <MDBFooter style={estiloFooter} className='text-center text-lg-start text-muted pt-3'>
 
 
             <section className='p-4'>
