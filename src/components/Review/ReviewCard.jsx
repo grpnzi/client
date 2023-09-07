@@ -137,7 +137,7 @@ function ReviewCard(props) {
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                                             <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} type="submit">Publish</button>
+                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} type="submit">Publish</button>
                                         </Form.Group>
                                     </Form>
                                     :
@@ -157,11 +157,11 @@ function ReviewCard(props) {
                                     <div className='edit'>
                                         {isEditing ? (
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}  
+                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}  
                                             onClick={() => setIsEditing(false)}>Cancel</button>
                                         ) : (
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
                                             onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</button>
                                         )}
                                     </div>
@@ -169,7 +169,7 @@ function ReviewCard(props) {
                                 {review.author._id === user?._id && isEditing &&
                                     <div>
                                         <button className="text-center btn btn-sm btn-danger rounded border border-warning"
-                                        style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                        style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
                                         onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</button>
                                     </div>
                                 }

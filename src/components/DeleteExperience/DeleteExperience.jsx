@@ -28,7 +28,8 @@ function DeleteExperience(props) {
       {user?.admin && (
         <div>
           <Link to={`/country/${location}/experiences`}>
-            <button onClick={(event) => handleDelete(event)}>Delete</button>
+            <button className="text-center btn btn-sm btn-danger rounded border border-warning"
+            style={{ width: '130px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} onClick={(event) => handleDelete(event)}>Delete</button>
           </Link>
         </div>
       )}

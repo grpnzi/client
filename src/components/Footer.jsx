@@ -188,7 +188,7 @@ export default function App() {
                 <a href="" className="me-3 text-reset">
                   <MDBIcon style={{ color: "black" }} fab icon="linkedin" />
                 </a>
-                <a href="" className="me-1 text-reset">
+                <a href="https://pbs.twimg.com/media/EM8tautX0AArppF.jpg" target="_blank" className="me-1 text-reset">
                   <MDBIcon style={{ color: "black" }} fab icon="github" />
                 </a>
               </div>
