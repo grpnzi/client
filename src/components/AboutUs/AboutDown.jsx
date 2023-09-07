@@ -20,7 +20,6 @@ function AboutDown() {
       <section className="bg-black p-2"></section>
 
       <section className="page-section" id="services"></section>
-    
 
       <div className="about-down" id="about">
         <Row className="mx-1 my-4 p-4">
