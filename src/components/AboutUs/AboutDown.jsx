@@ -57,11 +57,14 @@ function AboutDown() {
               </li>
             </ul>
           </Col>
+          
+
           <Col md={5} className='p-4'>
             <img
-              className="featurette-image img-fluid w-100 text-left"
+              className="featurette-image img-fluid w-800"
               src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
               alt="Three Unique Experiences Image"
+              
             />
           </Col>
         </Row>
