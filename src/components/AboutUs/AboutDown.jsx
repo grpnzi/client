@@ -73,6 +73,7 @@ function AboutDown() {
           <Col md={7} className="p-5">
             <h2 style={{ fontFamily: 'Russo One', fontSize: '25px' }} className="featurette-heading my-4 mx-4">Your Journey, <span className="text-muted"> Our Distinctive Promise.</span></h2>
             <p style={{ fontFamily: 'Share', fontSize: '20px' }} className="lead my-4 mx-4">Our journey begins with a simple promise: we travel extensively, immersing ourselves in diverse cultures, traversing varied landscapes, and seeking extraordinary experiences. It's this firsthand knowledge that sets us apart. We're not just selling destinations; we're offering a piece of our own wanderlust-infused souls.</p>
+            <button type="button" onClick={handleScrollToTop} className="text-left btnHook btn btn-sm btn-dark rounded border border-warning mt-3 mx-4" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Russo One', fontSize: '16px' }}>Explore</button>
           </Col>
           <Col md={5}>
             <img
