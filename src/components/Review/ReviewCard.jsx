@@ -137,7 +137,7 @@ function ReviewCard(props) {
                                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                                             <Form.Control as="textarea" rows={3} name="comment" value={commentEdited} onChange={handleCommentInput} />
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} type="submit">Publish</button>
+                                                style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }} type="submit">Publish</button>
                                         </Form.Group>
                                     </Form>
                                     :
@@ -145,10 +145,13 @@ function ReviewCard(props) {
                                 }
 
                                 <div className="d-flex justify-content-between align-items-center">
-                                    {user?._id ? 
-                                        <button className='btn-white'   onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</button>
+                                    {user?._id ?
+                                        <button className='btn-white' style={{ border: 'none' }}
+                                            onClick={(event) => likeComment(event, review._id)}>❤️{review.likes.length}</button>
                                         :
-                                        <Link to="/login"><button className='btn-white'>❤️{review.likes.length}</button></Link>
+                                        <Link to="/login"><button className='btn-white' style={{ border: 'none' }}
+                                        >❤️{review.likes.length}</button>
+                                        </Link>
                                     }
                                 </div>
                             </div>
@@ -157,20 +160,20 @@ function ReviewCard(props) {
                                     <div className='edit'>
                                         {isEditing ? (
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}  
-                                            onClick={() => setIsEditing(false)}>Cancel</button>
+                                                style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                                onClick={() => setIsEditing(false)}>Cancel</button>
                                         ) : (
                                             <button className="text-center btn btn-sm btn-dark rounded border border-warning"
-                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
-                                            onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</button>
+                                                style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                                onClick={() => { setIsEditing(true); setComment(review.comment) }}>Edit</button>
                                         )}
                                     </div>
                                 }
                                 {review.author._id === user?._id && isEditing &&
                                     <div>
                                         <button className="text-center btn btn-sm btn-danger rounded border border-warning"
-                                        style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
-                                        onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</button>
+                                            style={{ width: '100px', maxHeight: '35px', fontFamily: 'Share', fontSize: '14px' }}
+                                            onClick={(event) => deleteComment(event, { reviewId: review._id })}>Delete</button>
                                     </div>
                                 }
                             </div>

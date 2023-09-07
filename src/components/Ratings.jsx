@@ -105,13 +105,13 @@ const Rating = (props) => {
                             {user ? 
                                 <>
                                 <button className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}  
+                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px',marginLeft: '10px' }}  
                                     onClick={() => setRate(true)}>RATE
                                 </button>
                                 </>
                                 :
                                 <Link to="/login"><button className="btn-sm btn-dark rounded border border-warning"
-                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}>Rate</button></Link>}
+                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px',marginLeft: '10px' }}>Rate</button></Link>}
                         </div>
                     </div>
                 </div>
