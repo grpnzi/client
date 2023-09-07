@@ -1,4 +1,3 @@
-import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
@@ -62,7 +61,7 @@ function SignupPage() {
       <form onSubmit={handleSignupSubmit} className="text-center mt-5 SignupPage">
         <div className="form-row">
           <div className="col-md-5 mx-auto mb-3">
-            <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }}  htmlFor="inlineFormInputGroup">Email</label>
+            <label style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Email</label>
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
@@ -85,10 +84,10 @@ function SignupPage() {
             <div className="input-group">
               <div className="input-group-prepend">
                 <span className="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
-  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-</svg>
-                 </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                  </svg>
+                </span>
               </div>
               <input
                 className="form-control"
@@ -126,38 +125,38 @@ function SignupPage() {
           </div>
 
           <div className="col-md-5 mx-auto mb-3">
-          <label className="mb-2 mt-2" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Profile Image</label>
-          <div className="input-group">
-            <div className="input-group-prepend">
-              <span className="input-group-text">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-file-image" viewBox="0 0 16 16">
-                  <path d="M8.293 5.293a.5.5 0 0 1 .414-.121l2 1a.5.5 0 0 1 .293.455V11.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 2 11.5V4a1.5 1.5 0 0 1 1.5-1.5h4.793a.5.5 0 0 1 .414.121zM10.5 0A1.5 1.5 0 0 1 12 1.5v6a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-6A1.5 1.5 0 0 1 5 0h5.5z" />
-                  <path d="M9.293 5.293a.5.5 0 0 1 .707 0L11.5 6.793l1.646-1.647a.5.5 0 0 1 .708.708L12.207 7.5l1.647 1.646a.5.5 0 1 1-.708.708L11.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 7.5 9.146 5.854a.5.5 0 0 1 0-.708z" />
-                </svg>
-              </span>
+            <label className="mb-2 mt-2" style={{ fontFamily: 'Share', color: 'black', fontSize: '18px' }} htmlFor="inlineFormInputGroup">Profile Image</label>
+            <div className="input-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" fill="currentColor" className="bi bi-file-image" viewBox="0 0 16 16">
+                    <path d="M8.293 5.293a.5.5 0 0 1 .414-.121l2 1a.5.5 0 0 1 .293.455V11.5a1.5 1.5 0 0 1-1.5 1.5h-6A1.5 1.5 0 0 1 2 11.5V4a1.5 1.5 0 0 1 1.5-1.5h4.793a.5.5 0 0 1 .414.121zM10.5 0A1.5 1.5 0 0 1 12 1.5v6a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-6A1.5 1.5 0 0 1 5 0h5.5z" />
+                    <path d="M9.293 5.293a.5.5 0 0 1 .707 0L11.5 6.793l1.646-1.647a.5.5 0 0 1 .708.708L12.207 7.5l1.647 1.646a.5.5 0 1 1-.708.708L11.5 8.207l-1.646 1.647a.5.5 0 0 1-.708-.708L10.793 7.5 9.146 5.854a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                </span>
+              </div>
+              <input
+                type="file"
+                className="form-control"
+                name="image"
+                accept="image/*"
+                onChange={handleImage}
+              />
             </div>
-            <input
-              type="file"
-              className="form-control"
-              name="image"
-              accept="image/*"
-              onChange={handleImage}
-            />
+            {image && (
+              <div className="mt-2">
+                <CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
+                  <Image publicId={image} width="150" />
+                </CloudinaryContext>
+              </div>
+            )}
           </div>
-          {image && (
-            <div className="mt-2">
-              <CloudinaryContext cloudName={process.env.REACT_APP_CLOUDINARY_CLOUD_NAME}>
-                <Image publicId={image} width="150" />
-              </CloudinaryContext>
-            </div>
-          )}
-        </div>
 
           <div className="col-md-6 mx-auto mb-3 d-flex justify-content-between">
           </div>
           <div className="col-md-6 mx-auto mb-3">
 
-          <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Sign up</button>
+            <button type="submit" className="text-center btn btn-sm btn-dark rounded border border-warning" style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}>Sign up</button>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div>
@@ -166,8 +165,9 @@ function SignupPage() {
           </div>
 
         </div>
-    </form>
-  </div>
-)}
+      </form>
+    </div>
+  )
+}
 
 export default SignupPage;

@@ -22,14 +22,6 @@ function AuthProviderWrapper(props) {
 
     // If the token exists in the localStorage
     if (storedToken) {
-      // Send a request to the server using axios
-      /* 
-        axios.get(
-          `${process.env.REACT_APP_SERVER_URL}/auth/verify`,
-          { headers: { Authorization: `Bearer ${storedToken}` } }
-        )
-        .then((response) => {})
-        */
 
       // Or using a service
       authService
@@ -69,8 +61,7 @@ function AuthProviderWrapper(props) {
   };
 
   useEffect(() => {
-    // Run this code once the AuthProviderWrapper component in the App loads for the first time.
-    // This effect runs when the application and the AuthProviderWrapper component load for the first time.
+
     authenticateUser();
   }, []);
 
@@ -91,4 +82,4 @@ function AuthProviderWrapper(props) {
   );
 }
 
-export { AuthProviderWrapper, AuthContext};
+export { AuthProviderWrapper, AuthContext };

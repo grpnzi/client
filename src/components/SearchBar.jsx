@@ -33,7 +33,7 @@ function SearchBar({ onTagSearch, handleKeyDown }) {
         </div>
         <div className="col-md-2 d-flex justify-content-center align-items-center">
           <button
-            className="text-center btn btn-sm btn-dark rounded border border-warning" 
+            className="text-center btn btn-sm btn-dark rounded border border-warning"
             style={{ width: '160px', maxHeight: '45px', fontFamily: 'Share', fontSize: '16px' }}
             onClick={handleTagsSearch}
           >

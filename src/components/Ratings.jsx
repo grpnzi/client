@@ -55,16 +55,15 @@ const Rating = (props) => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log('DATA: ',data);
+                console.log('DATA: ', data);
                 setRate(false);
-                if(data.error)
-                {
+                if (data.error) {
                     setError(data.error)
                 }
                 updateStars()
             })
-            .catch((err) =>{
-                console.log('THIS IS THE CATCH ',err)
+            .catch((err) => {
+                console.log('THIS IS THE CATCH ', err)
 
             });
     };
@@ -102,16 +101,16 @@ const Rating = (props) => {
                             {error && <p className="text-danger">{error}</p>}
                         </div>
                         <div className="d-inline-block align-top  mt-1">
-                            {user ? 
+                            {user ?
                                 <>
-                                <button className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px',marginLeft: '10px' }}  
-                                    onClick={() => setRate(true)}>RATE
-                                </button>
+                                    <button className="btn-sm btn-dark rounded border border-warning"
+                                        style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px', marginLeft: '10px' }}
+                                        onClick={() => setRate(true)}>RATE
+                                    </button>
                                 </>
                                 :
                                 <Link to="/login"><button className="btn-sm btn-dark rounded border border-warning"
-                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px',marginLeft: '10px' }}>Rate</button></Link>}
+                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px', marginLeft: '10px' }}>Rate</button></Link>}
                         </div>
                     </div>
                 </div>
@@ -130,13 +129,13 @@ const Rating = (props) => {
                                 />
                             </label>
                             <button type="button" className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
-                                    onClick={handleRate}>
+                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}
+                                onClick={handleRate}>
                                 Submit
                             </button>
                             <button type="button" className="btn-sm btn-dark rounded border border-warning"
-                                    style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }} 
-                                    onClick={() => setRate(false)}>
+                                style={{ width: '50px', maxHeight: '50px', fontFamily: 'Share', fontSize: '13px' }}
+                                onClick={() => setRate(false)}>
                                 Cancel
                             </button>
                         </form>

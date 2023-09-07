@@ -3,7 +3,7 @@ import { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/esm/Button";
 
-function FormAnon(props) {
+function FormAnon() {
 
     const [comment, setComment] = useState("");
     const handleCommentInput = e => setComment(e.target.value);
